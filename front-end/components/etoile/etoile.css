@@ -1,0 +1,11 @@
+.rating-stars {
+  display: flex;
+  gap: 0px;
+  color: #ffb33e;
+}
+
+.rating-stars .star {
+  display: flex;
+  line-height: 0;
+}
+

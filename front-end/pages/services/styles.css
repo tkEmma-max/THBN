@@ -1,0 +1,62 @@
+@import url("/front-end/assets/styles/global.css");
+
+/*////////////////////////////////
+//            hero             //
+//////////////////////////////*/
+.hero {
+    padding: 20px;
+    /*background: linear-gradient(190deg, rgba(var(--first-color), 1), rgba(var(--second-color), 1));*/
+}
+
+.hero-title {
+    font-size: var(--text-xl);
+    font-weight: var(--fw-semibold);
+}
+
+
+/*////////////////////////////////
+//          filtre             //
+//////////////////////////////*/
+.filter {
+    width: 100%;
+    border-bottom: 1px solid rgba(var(--gray-color), 0.5);
+    justify-content: flex-start;
+}
+
+.filter-item {
+    gap: 10px;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-right: 1px solid rgba(var(--gray-color), 0.5);
+    font-size: var(--text-normal);
+    font-weight: var(--fw-semibold);
+    min-width: 150px;
+}
+
+.filter-item:active {
+    background: rgba(var(--first-color), 0.5);
+}
+
+.filter-item:hover {
+    color: rgba(var(--first-color), 1);
+}
+
+.filter-item span svg {
+    width: 18px;
+    height: 18px;
+    transition: 0.3s;
+}
+
+.filter-item:hover span svg {
+    color: rgba(var(--first-color), 1);
+    transform: rotate(180deg);
+}
+
+@media screen and (max-width:760px) {
+    .filter-item {
+        min-width: 80px;
+        gap: 5px;
+    }
+}

@@ -1,0 +1,75 @@
+/*ce fichier definit le style global de la page
+couleur, taille, poids...*/
+
+/*import des police*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    /*colors*/
+    --first-color: 25, 177, 228;
+    --second-color: 108, 92, 231;
+    --gray-color: 100 100, 100;
+
+    /*size*/
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-normal: 16px;
+    --text-lg: 20px;
+    --text-xl: 26px;
+    --text-2xl: 36px;
+
+    /*weight*/
+    --fw-basic: 300;
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    /*shadow*/
+    --shadow-bottom: 0px 5px 10px;
+    --shadow-all-around: 0px 0px 5px;
+
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "sans serif";
+    line-height: 1.7;
+}
+
+body{
+/*background: rgb(240,240,240);*/
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.profil{
+border: 1.5px solid  rgba(var(--first-color), 1);
+aspect-ratio: 1 / 1;
+border-radius: 50%;
+}
+/*responsive design*/
+@media screen and (max-width : 760px) {
+    :root {
+        /*size*/
+        --text-xs: 11px;
+        --text-sm: 12px;
+        --text-normal: 14px;
+        --text-lg: 16px;
+        --text-xl: 22px;
+        --text-2xl: 30px;
+    }
+}
