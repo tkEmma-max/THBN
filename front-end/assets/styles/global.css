@@ -1,9 +1,65 @@
 /*ce fichier definit le style global de la page
 couleur, taille, poids...*/
 
+/*/////////////////////////////////
+//   configuration des police   //
+////////////////////////////////*
+
+/* Police legere 300*/
+@font-face {
+    font-family: 'Poppins';
+    src: url('/front-end/assets/fonts/Poppins-Light.woff2') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Police normale */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/front-end/assets/fonts/Poppins-Regular.woff2') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Police grasse 700*/
+@font-face {
+    font-family: 'Poppins';
+    src: url('/front-end/assets/fonts/Poppins-Medium.woff2') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+/* Police grasse 700*/
+@font-face {
+    font-family: 'Poppins';
+    src: url('/front-end/assets/fonts/Poppins-SemiBold.woff2') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+/* Police grasse 700*/
+@font-face {
+    font-family: 'Poppins';
+    src: url('/front-end/assets/fonts/Poppins-Bold.woff2') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Police italique (optionnel) */
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
 /*import des police*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');*/
 
 :root {
     /*colors*/
@@ -41,9 +97,10 @@ couleur, taille, poids...*/
     line-height: 1.7;
 }
 
-body{
-/*background: rgb(240,240,240);*/
+body {
+    /*background: rgb(240,240,240);*/
 }
+
 .flex-row {
     display: flex;
     flex-direction: row;
@@ -56,11 +113,12 @@ body{
     flex-direction: column;
 }
 
-.profil{
-border: 1.5px solid  rgba(var(--first-color), 1);
-aspect-ratio: 1 / 1;
-border-radius: 50%;
+.profil {
+    border: 1px solid rgba(var(--gray-color), 0.5);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
 }
+
 /*responsive design*/
 @media screen and (max-width : 760px) {
     :root {

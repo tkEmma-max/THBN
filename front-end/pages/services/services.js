@@ -1,4 +1,4 @@
-import { note_etoile } from "/front-end/components/etoile/etoile.js";
+import { note_etoile } from '/front-end/components/etoile/etoile.js';
 
 const services = [
 	{
@@ -92,7 +92,7 @@ const services = [
 		delivery: '7',
 		note: 4.5,
 		avis: 100
-	},
+	}
 ];
 
 function fillServiceTemplate(service) {
@@ -123,15 +123,18 @@ function fillServiceTemplate(service) {
 	avis.innerText = service.avis;
 	prix.innerText = service.price;
 	delivery.innerText = service.delivery;
-    star.appendChild(note_etoile(parseFloat(service.note)))
+	star.appendChild(note_etoile(parseFloat(service.note)));
 
-return clone_template;
+	return clone_template;
 }
 
 function renderServices(services, selector) {
 	const fragment = document.createDocumentFragment();
 	services.forEach(service => {
 		let element = fillServiceTemplate(service);
+		element.addEventListener('click', () => {
+			alert('cette fonction nest pas disponible pour le moment');
+		});
 		fragment.appendChild(element);
 	});
 

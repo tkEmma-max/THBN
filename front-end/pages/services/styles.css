@@ -5,12 +5,15 @@
 //////////////////////////////*/
 .hero {
     padding: 20px;
-    /*background: linear-gradient(190deg, rgba(var(--first-color), 1), rgba(var(--second-color), 1));*/
+    margin: 20px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(var(--first-color), 0.7), rgba(var(--second-color), 0.4));
 }
 
 .hero-title {
-    font-size: var(--text-xl);
-    font-weight: var(--fw-semibold);
+    color: white;
+    font-size: var(--text-2xl);
+    font-weight: var(--fw-bold);
 }
 
 
@@ -19,28 +22,33 @@
 //////////////////////////////*/
 .filter {
     width: 100%;
-    border-bottom: 1px solid rgba(var(--gray-color), 0.5);
     justify-content: flex-start;
+    margin: 20px;
+    gap: 20px;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
 }
 
 .filter-item {
-    gap: 10px;
+    gap: 5px;
+    padding: 10px;
     justify-content: center;
-    border: none;
     outline: none;
     background: transparent;
-    border-right: 1px solid rgba(var(--gray-color), 0.5);
+    border: 1px solid rgba(var(--gray-color), 1);
     font-size: var(--text-normal);
     font-weight: var(--fw-semibold);
     min-width: 150px;
+    border-radius: 10px;
 }
 
 .filter-item:active {
     background: rgba(var(--first-color), 0.5);
 }
 
-.filter-item:hover {
-    color: rgba(var(--first-color), 1);
+.filter-item:focus {
+    border-color: rgba(var(--second-color), 0.5);
+    color: rgba(var(--second-color), 1);
 }
 
 .filter-item span svg {
@@ -50,13 +58,27 @@
 }
 
 .filter-item:hover span svg {
-    color: rgba(var(--first-color), 1);
+    color: rgba(var(--second-color), 1);
     transform: rotate(180deg);
 }
 
 @media screen and (max-width:760px) {
+    .hero {
+        margin: 10px;
+    }
+
+    .hero-title {
+        font-size: var(--text-xl);
+    }
+
+    .filter {
+        gap: 10px;
+        margin: 10px;
+    }
+
     .filter-item {
         min-width: 80px;
         gap: 5px;
+padding: 7px;
     }
 }

@@ -1,10 +1,17 @@
 @import url("/front-end/assets/styles/global.css");
 
+.services > p {
+    margin: 20px;
+    font-weight: var(--fw-medium);
+    font-size: var(--text-lg);
+color: rgba(var(--gray-color), 0.8);
+}
+
 .all-services {
-    padding: 15px;
+    padding: 20px;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 300px));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 290px));
     gap: 24px;
 }
 
@@ -12,7 +19,7 @@
     width: 100%;
     padding-bottom: 5px;
     overflow: hidden;
-    max-width: 320px;
+    max-width: 400px;
     font-size: var(--text-normal);
     border-radius: 10px;
     box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.3);
@@ -40,7 +47,7 @@
 
 .service-profil-container {
     background-position: cover;
-    width: 50px;
+    width: 35px;
     aspect-ratio: 1 / 1;
     background-position: center;
     background-size: contain;
@@ -133,14 +140,18 @@
 }
 
 @media screen and (max-width: 760px) {
+    .services > p {
+        margin: 10px;
+    }
+
     .service-profil-container {
-        width: 40px;
+        width: 30px;
     }
 
     .all-services {
-        padding: 7px;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        padding: 15px;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
         justify-items: center;
     }
 
