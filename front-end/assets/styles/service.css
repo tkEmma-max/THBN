@@ -1,10 +1,10 @@
 @import url("/front-end/assets/styles/global.css");
 
-.services > p {
+.services>p {
     margin: 20px;
     font-weight: var(--fw-medium);
     font-size: var(--text-lg);
-color: rgba(var(--gray-color), 0.8);
+    color: rgba(var(--gray-color), 0.8);
 }
 
 .all-services {
@@ -16,6 +16,7 @@ color: rgba(var(--gray-color), 0.8);
 }
 
 .service {
+    background: white;
     width: 100%;
     padding-bottom: 5px;
     overflow: hidden;
@@ -24,6 +25,16 @@ color: rgba(var(--gray-color), 0.8);
     border-radius: 10px;
     box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.3);
     transition: ease 0.5s;
+animation: service_animation 0.3s ease;
+}
+
+@keyframes service_animation {
+    from {
+        width: 20%;
+    }
+    to {
+        width: 100%;
+    }
 }
 
 .service:hover {
@@ -32,7 +43,7 @@ color: rgba(var(--gray-color), 0.8);
 }
 
 .service-img {
-    background-position: cover;
+    background-position: containt;
     width: 100%;
     aspect-ratio: 16 / 9;
     border-radius: 0px 0px 10px 10px;
@@ -140,7 +151,7 @@ color: rgba(var(--gray-color), 0.8);
 }
 
 @media screen and (max-width: 760px) {
-    .services > p {
+    .services>p {
         margin: 10px;
     }
 
@@ -149,7 +160,7 @@ color: rgba(var(--gray-color), 0.8);
     }
 
     .all-services {
-        padding: 15px;
+        padding: 20px;
         grid-template-columns: repeat(1, 1fr);
         gap: 20px;
         justify-items: center;

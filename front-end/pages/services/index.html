@@ -16,74 +16,128 @@
 				<p class="hero-title">trouver le service parfait</p>
 			</section>
 			<div class="filter flex-row">
-				<button class="filter-item flex-row">
-					<span>categorie</span>
-					<span
-						><svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<path d="m19 12-7 7-7-7" /></svg
-					></span>
-				</button>
-				<button class="filter-item flex-row">
-					<span>delai</span>
-					<span
-						><svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<path d="m19 12-7 7-7-7" /></svg
-					></span>
-				</button>
-				<button class="filter-item flex-row">
-					<span>note</span>
-					<span
-						><svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<path d="m19 12-7 7-7-7" /></svg
-					></span>
-				</button>
-				<button class="filter-item flex-row">
-					<span>trié part</span>
-					<span
-						><svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<path d="m19 12-7 7-7-7" /></svg
-					></span>
-				</button>
+				<div class="filter-item-group">
+					<button class="filter-item flex-row" id="categorie-filter">
+						<span>categorie</span>
+						<span
+							><svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path d="m19 12-7 7-7-7" /></svg
+						></span>
+					</button>
+					<div class="filter-item-detail" id="categorie-detail">
+						<ul>
+							<li>developpement web</li>
+							<li>design graphic</li>
+							<li>retouche photo</li>
+							<li>montage video</li>
+						</ul>
+					</div>
+				</div>
+				<div class="filter-item-group">
+					<button class="filter-item flex-row" id="delai-filter">
+						<span>delai</span>
+						<span
+							><svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path d="m19 12-7 7-7-7" /></svg
+						></span>
+					</button>
+					<div class="filter-item-detail" id="delai-detail">
+						<label for="delai-min">delai (min):</label>
+						<input
+							type="number"
+							min="0"
+							max="5"
+							step="1"
+							value="0"
+							id="delai-min"
+						/><br />
+						<label for="delai-max">delai (max):</label>
+						<input
+							type="number"
+							min="0"
+							max="5"
+							step="1"
+							value="0"
+							id="delai-max"
+						/><br/>
+<button class="btn-full">appliquer</button>
+					</div>
+				</div>
+				<div class="filter-item-group">
+					<button class="filter-item flex-row" id="note-filter">
+						<span>note</span>
+						<span
+							><svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path d="m19 12-7 7-7-7" /></svg
+						></span>
+					</button>
+					<div class="filter-item-detail" id="note-detail">
+						<input
+							type="number"
+							min="0"
+							max="5"
+							step="1"
+							value="0"
+						/>
+					</div>
+				</div>
+				<div class="filter-item-group">
+					<button class="filter-item flex-row" id="trie-filter">
+						<span>trié par</span>
+						<span
+							><svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path d="m19 12-7 7-7-7" /></svg
+						></span>
+					</button>
+					<div class="filter-item-detail" id="trie-detail">
+						<ul>
+							<li>developpement web</li>
+							<li>design graphic</li>
+							<li>retouche photo</li>
+							<li>montage video</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 			<div class="services">
 				<p>services les plus populaire dans cette categorie</p>
@@ -159,5 +213,6 @@
 		<footer></footer>
 		<script src="./main.js" type="module"></script>
 		<script src="./services.js" type="module"></script>
+		<script src="./filter.js" type="module"></script>
 	</body>
 </html>

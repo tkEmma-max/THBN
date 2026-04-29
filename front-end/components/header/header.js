@@ -21,6 +21,13 @@ export class Header {
 	//construction du header
 	buildHeader(place) {
 		place.appendChild(this.fillInfoApp());
+
+		if (!this.user) {
+			//place.appendChild(this.fillNavNoConnected());
+		} else {
+			place.appendChild(this.fillNavConnected);
+		}
+
 		return;
 	}
 
@@ -35,5 +42,22 @@ export class Header {
             <p class="name-app">TalentHub</p>
         `;
 		return header_info_app;
+	}
+
+	fillNavConnected() {
+		const nav_div = document.createElement('nav');
+		return nav_div;
+	}
+	fillNavNoConnected() {
+		const nav_div = document.createElement('nav');
+		nav_div.className = 'hd-nav flex-row';
+		nav_div.innerHTML = `
+            <ul class="register-action flex-row">
+                <li><a>acceuil</a></li>
+                <li><a>connexion</a></li>
+                <li><a>creer un compte</a></li>
+            </ul>
+        `;
+		return nav_div;
 	}
 }

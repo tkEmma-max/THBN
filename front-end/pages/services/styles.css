@@ -7,7 +7,7 @@
     padding: 20px;
     margin: 20px;
     border-radius: 20px;
-    background: linear-gradient(135deg, rgba(var(--first-color), 0.7), rgba(var(--second-color), 0.4));
+    background: linear-gradient(135deg, rgba(var(--first-color), 0.7), rgba(var(--second-color), 0.7));
 }
 
 .hero-title {
@@ -29,31 +29,69 @@
     flex-wrap: nowrap;
 }
 
+.filter-item-group {
+}
+
 .filter-item {
     gap: 5px;
     padding: 10px;
     justify-content: center;
     outline: none;
-    background: transparent;
-    border: 1px solid rgba(var(--gray-color), 1);
+    background: white;
+    border: 1px solid rgba(var(--second-color), 0.5);
     font-size: var(--text-normal);
-    font-weight: var(--fw-semibold);
+    font-weight: var(--fw-medium);
     min-width: 150px;
+    border-radius: 12px;
+    background: rgba(var(--second-color), 0.1);
+    color: rgba(var(--second-color), 0.7);
+}
+
+.filter-item-detail {
+display: none;
+    box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.35);
     border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    z-index: 900;
+    background: white;
+    margin: 10px 0 10px 0px;
+    animation: filter_animation ease 0.3s;
 }
 
 .filter-item:active {
     background: rgba(var(--first-color), 0.5);
+
+}
+
+#categorie-detail ul li{
+list-style: none;
+}
+#delai-detail button{
+width: 100%;
+margin: 10px 0 0 0 ;
+}
+@keyframes filter_animation {
+    from {
+        transform: translate(-40px, -40px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
 }
 
 .filter-item:focus {
     border-color: rgba(var(--second-color), 0.5);
     color: rgba(var(--second-color), 1);
+    background: rgba(var(--second-color), 0.3);
 }
 
 .filter-item span svg {
     width: 18px;
     height: 18px;
+    stroke-width: 1.3px;
+    color: rgba(var(--second-color), 0.5);
     transition: 0.3s;
 }
 
@@ -79,6 +117,6 @@
     .filter-item {
         min-width: 80px;
         gap: 5px;
-padding: 7px;
+        padding: 8px;
     }
 }
