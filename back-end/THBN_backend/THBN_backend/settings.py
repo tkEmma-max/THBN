@@ -1,4 +1,4 @@
-from pathlib import 4 Path
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ro9a%f(t(r*kohka)n%j5%@m#9^b!0go5m5#$y6kmlm=n34=(i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = Truebb
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -23,12 +23,16 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',h 
+    'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'corsheaders',tv 
-]  h
+    'corsheaders',
     'rest_framework_simplejwt',
+    'users',
+]
+
+AUTH_USER_MODEL = 'users.User'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -37,7 +41,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.cli  bn3ckjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'THBN_backend.urls'
