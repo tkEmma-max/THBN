@@ -85,7 +85,7 @@ couleur, taille, poids...*/
     --fw-bold: 700;
 
     /*shadow*/
-    --shadow-bottom: 0px 5px 10px;
+    --shadow-bottom: 0px 5px 15px;
     --shadow-all-around: 0px 0px 5px;
 
 }
@@ -136,10 +136,12 @@ button{
     background: linear-gradient(135deg, rgba(var(--first-color), 0.7), rgba(var(--second-color), 0.7));
     color: white;
 }
+
 .btn-full:focus{
     background: linear-gradient(135deg, rgba(var(--first-color), 1), rgba(var(--second-color), 1));
     color: white;
 }
+
 .flex-row {
     display: flex;
     flex-direction: row;

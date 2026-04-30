@@ -17,7 +17,7 @@ const services = [
 		profil: '/front-end/assets/pictures/anonyme.svg',
 		pseudo: '@desigMaster',
 		profession: 'designer',
-		title: "creation d'Application Web",
+		title: "develloppement de server backend avec python",
 		price: '500',
 		delivery: '7',
 		note: 2,
@@ -39,7 +39,7 @@ const services = [
 		profil: '/front-end/assets/pictures/anonyme.svg',
 		pseudo: '@desigMaster',
 		profession: 'designer',
-		title: "creation d'Application Web",
+		title: "creation de logo personalié",
 		price: '500',
 		delivery: '7',
 		note: 4.5,
@@ -62,7 +62,7 @@ const services = [
 		profil: '/front-end/assets/pictures/anonyme.svg',
 		pseudo: '@desigMaster',
 		profession: 'designer',
-		title: "creation d'Application Web",
+		title: "montagd de videos avec capcut pro",
 		service_picture: './service2.png',
 		price: '500',
 		delivery: '7',
@@ -114,6 +114,13 @@ function fillServiceTemplate(service) {
 	const delivery = clone_template.querySelector('.service-delivery');
 	const profession = clone_template.querySelector('.service-profil-prof');
 
+	//ajout de lecouteur devenemment
+	const template_content = clone_template.querySelector('.service');
+	template_content.addEventListener('click', () => {
+		sessionStorage.setItem('service-clicked', JSON.stringify(service));
+        window.location.href = "/front-end/pages/service/index.html"
+	});
+
 	//remplissage
 	title.innerText = service.title;
 	picture.style.backgroundImage = `url("${service.picture}")`;
@@ -132,9 +139,6 @@ function renderServices(services, selector) {
 	const fragment = document.createDocumentFragment();
 	services.forEach(service => {
 		let element = fillServiceTemplate(service);
-		element.addEventListener('click', () => {
-			alert('cette fonction nest pas disponible pour le moment');
-		});
 		fragment.appendChild(element);
 	});
 
