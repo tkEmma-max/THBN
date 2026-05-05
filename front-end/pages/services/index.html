@@ -7,6 +7,12 @@
 		<link rel="stylesheet" href="/front-end/assets/styles/service.css" />
 		<link rel="stylesheet" href="/front-end/components/etoile/etoile.css" />
 		<link rel="stylesheet" href="/front-end/components/header/header.css" />
+		<link rel="stylesheet" href="/front-end/components/footer/footer.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		/>
+
 		<title>services</title>
 	</head>
 	<body>
@@ -15,7 +21,7 @@
 			<section class="hero">
 				<p class="hero-title">trouver le service parfait</p>
 			</section>
-			<div class="filter flex-row">
+			<section class="filter flex-row">
 				<div class="filter-item-group">
 					<button class="filter-item flex-row" id="categorie-filter">
 						<span>categorie</span>
@@ -79,8 +85,8 @@
 							step="1"
 							value="0"
 							id="delai-max"
-						/><br/>
-<button class="btn-full">appliquer</button>
+						/><br />
+						<button class="btn-full">appliquer</button>
 					</div>
 				</div>
 				<div class="filter-item-group">
@@ -138,12 +144,29 @@
 						</ul>
 					</div>
 				</div>
-			</div>
-			<div class="services">
+			</section>
+			<section class="services">
 				<p>services les plus populaire dans cette categorie</p>
 				<!--template pour les service -->
 				<template id="service-template" class="flex-column">
 					<div class="service flex-column">
+						<span class="service-favorite">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path
+									d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"
+								/>
+							</svg>
+						</span>
 						<div class="service-img"></div>
 						<p class="service-title"></p>
 						<div class="service-review flex-row">
@@ -208,9 +231,9 @@
 					</div>
 				</template>
 				<div class="all-services"></div>
-			</div>
+			</section>
 		</main>
-		<footer></footer>
+		<footer id="ft"></footer>
 		<script src="./main.js" type="module"></script>
 		<script src="./services.js" type="module"></script>
 		<script src="./filter.js" type="module"></script>

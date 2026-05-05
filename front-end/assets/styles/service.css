@@ -1,171 +1,185 @@
 @import url("/front-end/assets/styles/global.css");
 
-.services > p {
-  margin: 20px;
-  font-weight: var(--fw-medium);
-  font-size: var(--text-lg);
-  color: rgba(var(--gray-color), 0.8);
+.services>p {
+    margin: 20px;
+    font-weight: var(--fw-medium);
+    font-size: var(--text-lg);
+    color: rgba(var(--gray-color), 0.8);
 }
 
 .all-services {
-  padding: 20px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+    padding: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
 }
 
 .service {
-  background: white;
-  width: 100%;
-  padding-bottom: 5px;
-  overflow: hidden;
-  max-width: 400px;
-  font-size: var(--text-normal);
-  border-radius: 10px;
-  box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.3);
-  transition: ease 0.5s;
-  animation: service_animation 0.3s ease;
+    background: white;
+    width: 100%;
+    padding-bottom: 5px;
+    overflow: hidden;
+    max-width: 400px;
+    font-size: var(--text-normal);
+    border-radius: 10px;
+    box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.3);
+    transition: ease 0.5s;
+    animation: service_animation 0.3s ease;
+    position: relative;
 }
 
 @keyframes service_animation {
-  from {
-    width: 20%;
-  }
-  to {
-    width: 100%;
-  }
+    from {
+        width: 20%;
+    }
+
+    to {
+        width: 100%;
+    }
 }
 
 .service:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-all-around) rgba(var(--first-color), 0.5);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-all-around) rgba(var(--first-color), 0.5);
 }
 
+
+.service-favorite {
+    position: absolute;
+    top: 10px;
+    left: 90%;
+    z-index: 1000;
+    color: rgba(var(--gray-color), 0.8);
+}
+
+.service-favorite:hover{
+fill: rgba(var(--gray-color), 0.8);
+}
 .service-img {
-  background-position: containt;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 0px 0px 10px 10px;
+    background-position: cover;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .service-profil {
-  flex-wrap: nowrap;
-  margin: 0px 0px 0px 10px;
-  justify-content: flex-start;
-  gap: 10px;
+    flex-wrap: nowrap;
+    margin: 0px 0px 0px 10px;
+    justify-content: flex-start;
+    gap: 10px;
 }
 
 .service-profil-container {
-  background-position: cover;
-  width: 35px;
-  aspect-ratio: 1 / 1;
-  background-position: center;
-  background-size: contain;
+    background-position: cover;
+    width: 35px;
+    aspect-ratio: 1 / 1;
+    background-position: center;
+    background-size: contain;
 }
 
 .service-profil-infos {
-  padding-right: 0;
-  justify-content: center;
-  align-items: flex-start;
-  font-size: var(--text-sm);
+    padding-right: 0;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: var(--text-sm);
 }
 
 .service-profil-pseudo {
-  font-weight: var(--fw-normal);
+    font-weight: var(--fw-normal);
 }
 
 .service-profil-prof {
-  overflow: hidden;
-  max-width: 50px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-weight: var(--fw-basic);
-  color: rgba(var(--gray-color), 1);
-  max-width: 90px;
-  line-height: 0.9;
+    overflow: hidden;
+    max-width: 50px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: var(--fw-basic);
+    color: rgba(var(--gray-color), 1);
+    max-width: 90px;
+    line-height: 0.9;
 }
 
 .service-title {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin: 5px 5px 0px 10px;
-  font-weight: var(--fw-medium);
-  font-size: var(--text-lg);
-  line-height: 1.1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 5px 5px 0px 10px;
+    font-weight: var(--fw-medium);
+    font-size: var(--text-lg);
+    line-height: 1.1;
 }
 
 .service-review {
-  margin-left: 10px;
-  gap: 10px;
+    margin-left: 10px;
+    gap: 10px;
 }
 
 .service-avis {
-  font-weight: var(--fw-semibold);
-  padding: 0 3px 0 3px;
+    font-weight: var(--fw-semibold);
+    padding: 0 3px 0 3px;
 }
 
 .service-note {
-  font-weight: var(--fw-semibold);
-  padding-right: 5px;
+    font-weight: var(--fw-semibold);
+    padding-right: 5px;
 }
 
 .service-meta {
-  color: rgba(var(--gray-color), 1);
-  width: 90%;
-  justify-content: space-between;
-  margin: 0px 10px 0px 10px;
+    color: rgba(var(--gray-color), 1);
+    width: 90%;
+    justify-content: space-between;
+    margin: 0px 10px 0px 10px;
 }
 
 .service-meta p span svg {
-  color: rgba(var(--first-color), 1);
-  display: flex;
+    color: rgba(var(--first-color), 1);
+    display: flex;
 }
 
 .service-delivery,
 .service-prix {
-  color: rgba(var(--first-color), 1);
-  font-weight: var(--fw-semibold);
-  padding: 0 3px 0 3px;
+    color: rgba(var(--first-color), 1);
+    font-weight: var(--fw-semibold);
+    padding: 0 3px 0 3px;
 }
 
 .profil-mention {
-  gap: 3px;
-  justify-content: center;
-  align-items: center;
-  font-size: var(--text-xs);
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--text-xs);
 }
 
 .profil-top-rated {
-  line-height: 1;
-  font-weight: var(--fw-semibold);
-  color: rgba(var(--first-color), 1);
+    line-height: 1;
+    font-weight: var(--fw-semibold);
+    color: rgba(var(--first-color), 1);
 }
 
 .profil-verified {
-  display: flex;
+    display: flex;
 }
 
 @media screen and (max-width: 760px) {
-  .services > p {
-    margin: 10px;
-  }
+    .services>p {
+        margin: 10px;
+    }
 
-  .service-profil-container {
-    width: 30px;
-  }
+    .service-profil-container {
+        width: 30px;
+    }
 
-  .all-services {
-    padding: 20px;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
-    justify-items: center;
-  }
+    .all-services {
+        padding: 10px;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        justify-items: center;
+    }
 
-  .service-profil {
-    gap: 3px;
-  }
+    .service-profil {
+        gap: 3px;
+    }
 }

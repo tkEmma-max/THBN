@@ -1,7 +1,7 @@
 .rating-stars {
   display: flex;
   gap: 0px;
-  color: #ffb33e;
+  color: black;
 }
 
 .rating-stars .star {
@@ -10,7 +10,7 @@
 }
 
 .star-half svg{
-color: #ffb33e;
-fill: #ffb33e;
+color: black;
+fill: black;
 }
 
