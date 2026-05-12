@@ -1,0 +1,108 @@
+@import url("/front-end/assets/styles/global.css");
+
+body {
+    position: relative;
+}
+
+main {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.msg-confirm {
+    margin: 20px;
+    padding: 20px;
+}
+
+.msg-confirm p {
+    font-size: var(--text-lg);
+    font-weight: var(--fw-medium);
+}
+
+/*////////////////////////////////
+//           packs             //
+//////////////////////////////*/
+
+
+.pack-title {
+    padding: 7px;
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    color: rgba(var(--second-color), 0.6);
+    border: 1px solid rgba(var(--second-color), 0.2);
+    background: rgba(var(--second-color), 0.08);
+    font-size: var(--text-lg);
+    font-weight: var(--fw-semibold);
+}
+
+.packs {
+    width: 100%;
+    border: 1px solid rgba(var(--second-color), 0.15);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.packs-feature li {
+    list-style: none;
+    padding-left: 10px;
+    list-style-position: inside;
+    position: relative;
+    transition: 0.4s ease;
+    border-radius: 10px;
+    width: 100%;
+    margin-right: 20px;
+    font-weight: var(--fw-medium);
+}
+
+#price,
+#delivery {
+    font-weight: var(--fw-semibold);
+}
+
+
+.packs-feature li::before {
+    content: "\2713";
+    color: rgba(var(--second-color), 0.4);
+    left: 0;
+    padding-right: 10px;
+    font-weight: var(--fw-semibold);
+
+}
+
+.packs-feature li:hover {
+    transform: translateX(10px);
+    color: rgba(var(--second-color), 0.6);
+    background: rgba(var(--second-color), 0.15);
+}
+
+.service-title {
+    font-weight: var(--fw-semibold);
+    font-size: var(--text-lg);
+}
+
+.service-owner {
+    color: rgba(var(--first-color), 0.6);
+    font-weight: var(--fw-medium);
+
+}
+
+.order-details p {
+    margin-bottom: 20px;
+}
+
+
+@media screen and (min-height: 800px) {
+    main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        border-radius: 15px;
+        box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.4);
+    }
+}
