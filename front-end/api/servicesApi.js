@@ -29,7 +29,7 @@ const services = [
 		delivery: '7',
 		note: 2,
 		avis: 100
-	},/*
+	},
 	{
 		picture: '/front-end/assets/pictures/service1.png',
 		profil: '/front-end/assets/pictures/profil1.jpg',
@@ -99,7 +99,7 @@ const services = [
 		delivery: '7',
 		note: 4.5,
 		avis: 100
-	}*/
+	}
 ];
 
 export function getServices() {
