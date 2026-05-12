@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="galerie.css" />
 		<link rel="stylesheet" href="/front-end/components/header/header.css" />
 		<link rel="stylesheet" href="/front-end/components/footer/footer.css" />
 		<link rel="stylesheet" href="/front-end/components/etoile/etoile.css" />
@@ -89,23 +90,50 @@
 			</section>
 
 			<section class="service-packs">
-				<div class="packs-basic">
-					<p class="packs-title">Basic</p>
-					<p class="packs-price"><span class="service-prix"></span>FCFA</p>
-					<p class="packs-delivery"><span class="service-delivery">10</span></p>
-					<ul class="packs-feature"></ul>
-					<button class="btn-full">Commander</button>
+				<div class="packs-basic flex-column">
+					<p class="packs-title">Pack Basic</p>
+					<p class="packs-price">
+						prix :
+						<span class="service-prix" id="basic-price"></span>FCFA
+					</p>
+					<p class="packs-delivery">
+						livraison standard:
+						<span
+							class="service-delivery"
+							id="basic-delivery"
+						></span>
+						jours
+					</p>
+					<ul class="packs-feature" id="basic-features"></ul>
+					<button class="btn-full" id="basic-pack-button">
+						Commander
+					</button>
 				</div>
-				<div class="packs-premium">
-					<p class="packs-title">Premium</p>
-					<p class="packs-price"></p>
-					<p class="packs-delivery"></p>
-					<p class="packs-feature"></p>
-					<button class="btn-full">Commander</button>
+				<div class="packs-premium flex-column">
+					<p class="packs-title">Pack Premium</p>
+					<p class="packs-price">
+						prix :
+						<span class="service-prix" id="premium-price"></span
+						>FCFA
+					</p>
+					<p class="packs-delivery">
+						livraison expresse:
+						<span
+							class="service-delivery"
+							id="premium-delivery"
+						></span>
+						jours
+					</p>
+					<ul class="packs-feature" id="premium-features"></ul>
+					<button class="btn-full" id="premium-pack-button">
+						Commander
+					</button>
 				</div>
 			</section>
 
-			<section class="service-about"></section>
+			<section class="service-about">
+				<p class="service-about-text"></p>
+			</section>
 
 			<section class="service-galerie flex-column">
 				<!-- Vidéo de présentation -->
@@ -171,9 +199,16 @@
 					</div>
 				</div>
 			</section>
+			<div class="service-not-found flex-column">
+				<p>&#9888;</p>
+				<p>service non trouvé</p>
+<p>retour a la page des <a href="/front-end/pages/services/index.html">service</a></p>
+			</div>
 		</main>
-		<footer class="ft"></footer>
+		<footer id="ft"></footer>
 		<!--js -->
 		<script src="main.js" type="module"></script>
+		<script src="services.js" type="module"></script>
+		<script src="packs.js" type="module"></script>
 	</body>
 </html>

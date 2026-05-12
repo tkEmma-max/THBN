@@ -1,9 +1,9 @@
 import { note_etoile } from '/front-end/components/etoile/etoile.js';
 import { getServices } from '/front-end/api/servicesApi.js';
 
-const services = getServices()
+const services = getServices();
 
-function fillServiceTemplate(service) {
+export function fillServiceTemplate(service) {
 	const template = document.getElementById('service-template');
 	if (!template) {
 		return 0;
@@ -24,26 +24,27 @@ function fillServiceTemplate(service) {
 
 	//ajout de lecouteur devenemment
 	const template_content = clone_template.querySelector('.service');
+	const idUrlParam = new URLSearchParams({ id: service.id });
 	template_content.addEventListener('click', () => {
-		sessionStorage.setItem('service-clicked', JSON.stringify(service));
-		window.location.href = '/front-end/pages/service/index.html';
+		window.location.href = `/front-end/pages/service/index.html?${idUrlParam.toString()}`;
 	});
 
 	//remplissage
 	title.innerText = service.title;
 	picture.style.backgroundImage = `url("${service.picture}")`;
-	profil.style.backgroundImage = `url("${service.profil}")`;
-	pseudo.innerText = service.pseudo;
-	profession.innerText = service.profession;
-	avis.innerText = service.avis;
-	prix.innerText = service.price;
-	delivery.innerText = service.delivery;
-	star.appendChild(note_etoile(parseFloat(service.note)));
+	profil.style.backgroundImage = `url("${service.owner.profilePicture}")`;
+	pseudo.innerText = service.owner.pseudo;
+	profession.innerText = service.owner.profession;
+	avis.innerText = service.reviews;
+	prix.innerText = service.packs[0].price;
+	delivery.innerText = service.packs[0].delivery;
+	star.appendChild(note_etoile(parseFloat(service.rating)));
 
 	return clone_template;
 }
 
-function renderServices(services, selector) {
+export function renderServices(services, selector) {
+	alert('banane');
 	const fragment = document.createDocumentFragment();
 	services.forEach(service => {
 		let element = fillServiceTemplate(service);

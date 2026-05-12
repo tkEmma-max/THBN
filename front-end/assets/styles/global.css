@@ -95,6 +95,8 @@ couleur, taille, poids...*/
     box-sizing: border-box;
     font-family: "Poppins", "sans serif";
     line-height: 1.7;
+    font-size: var(--text-normal);
+    font-weight: var(--fw-normal);
 }
 
 body {
@@ -169,6 +171,11 @@ button {
 
 svg {
     display: block;
+}
+
+input {
+    outline: none;
+    transition: 0.3s ease;
 }
 
 /*responsive design*/
