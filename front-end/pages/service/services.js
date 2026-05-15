@@ -59,6 +59,7 @@ function fillServiceInfos(service) {
 }
 
 function serviceNotFound() {
+alert("rendering...")
 	document.querySelectorAll('section').forEach(sect => {
 		sect.style.display = 'none';
 	});
