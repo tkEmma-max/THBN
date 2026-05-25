@@ -35,6 +35,7 @@ export function fillServiceTemplate(service) {
 	profil.style.backgroundImage = `url("${service.owner.profilePicture}")`;
 	pseudo.innerText = service.owner.pseudo;
 	profession.innerText = service.owner.profession;
+	note.innerText = service.rating;
 	avis.innerText = service.reviews;
 	prix.innerText = service.packs[0].price;
 	delivery.innerText = service.packs[0].delivery;
@@ -50,7 +51,7 @@ export function renderServices(services, selector) {
 		fragment.appendChild(element);
 	});
 
-	const place = document.querySelector(selector)
+	const place = document.getElementById(selector)
 	if (place) {
 		place.innerHTML = '';
 		place.appendChild(fragment);
@@ -58,5 +59,5 @@ export function renderServices(services, selector) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-	renderServices(services, '.all-services');
+	renderServices(services, 'all-services');
 });

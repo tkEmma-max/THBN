@@ -171,11 +171,30 @@ button {
 
 svg {
     display: block;
+    stroke-width: 1.2q;
 }
 
 input {
     outline: none;
     transition: 0.3s ease;
+}
+
+.input-group label {
+    display: flex;
+    flex-direction: row;
+    align-item: center;
+    justify-content: flex-start;
+    gap: 5px;
+    transition: 0.5s;
+}
+
+.input-group input {
+    padding: 7px;
+    border-radius: 8px;
+    border: 1px solid rgba(var(--gray-color), 0.5);
+    color: rgba(var(--gray-color), 0.9);
+    font-size: var(--text-normal);
+    font-weight: var(--fw-medium);
 }
 
 /*responsive design*/

@@ -10,7 +10,7 @@ import { getServices, getCategories } from '/front-end/api/servicesApi.js';
 document.addEventListener('DOMContentLoaded', () => {
 	EventShowDetailFilter();
 	fillCategories(getCategories(), 'categorie-detail-list');
-	filterCategoriesEvent(getServices(), "all-services", "categorie-detail-list");
+	AllFilterEventListener(getServices());
 });
 
 function EventShowDetailFilter() {
@@ -59,6 +59,7 @@ function fillCategories(categories, selector) {
 		categories.forEach(categorie => {
 			const li = document.createElement('li');
 			li.textContent = categorie.name;
+			li.id = categorie.name.toLowerCase().replace(" ", "-");
 			categories_list.appendChild(li);
 		});
 	}
@@ -66,7 +67,7 @@ function fillCategories(categories, selector) {
 
 function filterServices(services, options = {}) {
 	let newServices = [...services];
-	const { categorie, delai_min, delai_max, rating } = options;
+	const { category, delai_min, delai_max, rating } = options;
 
 	//filtre en fonction de la note
 	if (rating) {
@@ -74,98 +75,87 @@ function filterServices(services, options = {}) {
 	}
 
 	//filtre en fonction de la categorie
-	if (categorie) {
-alert("filtering by category")
-		newServices = newServices.filter(s => s.category === categorie);
+	if (category) {
+		newServices = newServices.filter(s => s.category === category);
 	}
 
 	//filtre en fonction du delai
 	if (delai_min && delai_max) {
 		newServices = newServices.filter(s => {
-			deliveryTime = s.packs.find(
-				pack => pack.name.toLowerCase() === 'pack basique'
-			).delivery;
+			const deliveryTime = parseInt(
+				s.packs.find(pack => pack.name.toLowerCase() === 'pack basic')
+					.delivery
+			);
 			return deliveryTime >= delai_min && deliveryTime <= delai_max;
 		});
 	}
-
+//	alert(`${newServices.length} services found after filtering`);
 	return newServices;
 }
 
-function makeFilterEventListener(services, filterOptions) {
-	const { triggerId, targetId, sourceId } = filterOptions;
+function getInfosFilters() {
+	const delai_min_input = document.getElementById('delai-min');
+	const delai_max_input = document.getElementById('delai-max');
+	const note_input = document.getElementById('note');
+	const delai_min = parseInt(delai_min_input?.value) || 0;
+	const delai_max = parseInt(delai_max_input?.value) || 100;
+	const rating = parseFloat(note_input?.value) || 0;
+	return { delai_min, delai_max, rating };
+}
+
+function makeFilterEventListener(services, filterOptions = {}) {
+	const { triggerId, targetId, autherSourceValue, sourceMotif } =
+		filterOptions;
+	//alert(
+	//	`making event listener with options: ${JSON.stringify(filterOptions)}`);
 	const trigger = document.getElementById(triggerId);
-	const target = document.getElementById(targetId);
-	const source = document.getElementById(sourceId);
+	let source = {};
 
-	if (!trigger || !target) return;
+	if (!trigger || !targetId) {
+		return;
+	}
 	trigger.addEventListener('click', () => {
-		let servicesFiltered = filterServices(services, filterOptions);
-		renderServices(servicesFiltered, '.all-services');
+		if (!autherSourceValue || !sourceMotif) {
+			source = getInfosFilters();
+		} else {
+			source = getInfosFilters();
+			source[sourceMotif] = autherSourceValue;
+			//alert(`motif source: ${source[sourceMotif]}`);
+			//alert(JSON.stringify(source));
+		}
+
+	//	alert(`${triggerId} clicked with source: ${JSON.stringify(source)}`);
+		let servicesFiltered = filterServices(services, source);
+		renderServices(servicesFiltered, targetId);
 	});
 }
 
-function AllEventFilter(services) {
-	const target = 'all-services';
-	if (!target) return;
-	makeFilterEvent(services, {
-		tiggerId: 'delai-filter',
-		targetId: target,
-		delai_min: 1,
-		delai_max: 3
+function AllFilterEventListener(services) {
+	const delai_trigger = 'filter-delai-button';
+	const note_trigger = 'filter-note-button';
+	const categories_trigger = document.getElementById(
+		'categorie-detail-list'
+	).children;
+	const targetId = 'all-services';
+
+	makeFilterEventListener(services, {
+		triggerId: delai_trigger,
+		targetId: targetId
 	});
-	makeFilterEvent(services, {
-		tiggerId: 'note-filter',
-		targetId: 'note-detail',
-		rating: 4
+
+	makeFilterEventListener(services, {
+		triggerId: note_trigger,
+		targetId: targetId
 	});
-}
 
-function filterCategoriesEvent(services, selector, listSelector) {
-  //recupration de la liste des categories
-  const categories_list = document.querySelectorAll(`#${listSelector} li`);
-  const place = document.getElementById(selector);
-  if (categories_list && place) {
-    categories_list.forEach((cl) => {
-      cl.addEventListener("click", () => {
-        renderServices(
-          filterServices(services, { categorie: cl.textContent }),
-          place,
-        );
-      });
-    });
-  }
+	if (categories_trigger) {
+		Array.from(categories_trigger).forEach(categorie => {
+			makeFilterEventListener(services, {
+				triggerId: categorie.id,
+				targetId: targetId,
+				autherSourceValue: categorie.textContent,
+				sourceMotif: 'category'
+			});
+		});
+	}
 }
-
-/*
-
-
-function filterDelaiEvent(services, delai_min, delai_max, buttonId, selector) {
-  const button = document.getElementById(buttonId);
-  const place = document.getElementById(selector);
-  if (button && place) {
-    button.addEventListener("click", () => {
-      renderServices(
-        filterServices(services, { delai_min, delai_max }),
-        place,
-      );
-    });
-  }
-}
-
-function filterRatingEvent(services, rating, buttonId) {
-  const button = document.getElementById(buttonId);
-  if (buttton) {
-    button.addEventListener("click", () => {
-      renderServices(filterServices(services, { rating }), ".all-services");
-    });
-}
-
-function sortServices(services, sortBy) {
-}
-function sortEvent(services, sortBy, buttonId) {
-}
-function allEventFilter(services) {
-
-}
-*/

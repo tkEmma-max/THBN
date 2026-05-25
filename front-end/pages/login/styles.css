@@ -1,0 +1,85 @@
+/*/////////////////////////////////////
+//   formulaire de connexion        // 
+///////////////////////////////////*/
+.title-form {
+    font-size: var(--text-xl);
+    font-weight: var(--fw-medium);
+    margin: 20px;
+}
+
+.connexion-form {
+    /*border: 1px solid;*/
+    margin: 20px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.input-group {
+    gap: 10px;
+}
+
+.input-group:focus-within {
+    color: rgba(var(--first-color), 0.7);
+
+}
+
+.input-group label:focus-within {
+    font-weight: 800;
+}
+
+.login-button {
+    margin-top: 20px;
+    font-size: var(--text-lg);
+}
+
+.forgot-password {
+    font-size: var(--text-sm);
+    text-align: right;
+    color: rgba(var(--gray-color), 0.7);
+}
+
+.not-account {
+    margin: 20px;
+    color: rgba(var(--gray-color), 1);
+    font-weight: var(--fw-medium)ĺ;
+}
+
+
+
+#foot {
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+}
+
+main {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+    main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px;
+        border-radius: 20px;
+        box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.7);
+    }
+
+    .connexion-hero {
+        display: flex;
+        flex: 3 1 auto;
+        border: 1px solid;
+        min-width: 50%;
+height: 100%;
+        background: -moz-linear-gradient(to bottom, red, blue);
+    }
+
+    .form-content {
+        flex: 2 1 auto;
+    }
+}
