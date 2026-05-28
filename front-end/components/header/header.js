@@ -39,7 +39,7 @@ export class Header {
             <div class="logo-container">
                 <img src="/front-end/assets/pictures/Logo.png" alt="logo"/>
             </div>
-            <p class="name-app">TalentHub</p>
+            <p class="app-name">TalentHub</p>
         `;
 		return header_info_app;
 	}

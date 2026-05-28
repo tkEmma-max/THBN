@@ -17,13 +17,12 @@
   padding: 10px;
   justify-content: center;
   outline: none;
-  background: white;
-  border: 0.9px solid rgba(var(--second-color), 0.4);
+  border: 0.9px solid rgba(var(--second-color), 1);
   font-size: var(--text-normal);
   font-weight: var(--fw-medium);
   min-width: 150px;
   border-radius: 12px;
-  background: rgba(var(--second-color), 0.1);
+  background: rgba(var(--second-color), 0.4);
   color: rgba(var(--second-color), 0.7);
 }
 
@@ -42,8 +41,9 @@
 .filter-item-detail:last-child {
 }
 
-.filter-item:active {
-  background: rgba(var(--first-color), 0.5);
+.filter-item:active, .filter-item:hover {
+  background: rgba(var(--first-color), 0.6);
+  color: rgba(var(--second-color), 1);
 }
 
 #categorie-detail ul li {

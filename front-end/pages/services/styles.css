@@ -4,12 +4,12 @@
 //            hero             //
 //////////////////////////////*/
 .hero {
-    padding: 20px;
+    padding: var(--space-lg);
     margin: 20px 20px 40px 20px;
     border-radius: 12px;
     background: linear-gradient(135deg,
-            rgba(var(--first-color), 0.7),
-            rgba(var(--second-color), 0.7));
+            rgba(var(--first-color), 0.9),
+            rgba(var(--second-color), 0.9));
 }
 
 .hero-title {

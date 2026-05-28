@@ -53,12 +53,13 @@
     color: rgba(var(--gray-color), 0.8);
 }
 
-.service-favorite:hover{
-fill: rgba(var(--gray-color), 0.8);
+.service-favorite:hover {
+    fill: rgba(var(--gray-color), 0.8);
 }
+
 .service-img {
     background-position: center;
-background-size: cover;
+    background-size: cover;
     width: 100%;
     aspect-ratio: 16 / 9;
     border-radius: 0px 0px 10px 10px;
