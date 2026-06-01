@@ -5,7 +5,7 @@
 
 main {
     margin: 0 var(--space-lg);
-    transform: translateY(20%);
+    transform: translateY(10%);
 }
 
 .connexion-hero {
@@ -59,36 +59,7 @@ main {
 }
 
 
-.bulle1 {
-    position: fixed;
-    top: -40px;
-    right: -40px;
-    width: 150px;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background: rgba(var(--second-color), 0.1);
-    border: 2px solid rgba(var(--second-color), 0.5);
-    box-shadow: var(--shadow-all-around) rgba(var(--second-color), 0.6);
-
-}
-
-.bulle2 {
-    position: fixed;
-    bottom: -80px;
-    left: -80px;
-    width: 200px;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background: rgba(var(--first-color), 0.1);
-    border: 2px solid rgba(var(--first-color), 0.3);
-    box-shadow: var(--shadow-all-around) rgba(var(--first-color), 0.6);
-    transform: translate(300px, -300px);
-    transition: transform linear 50s;
-}
-
-#foot {
-    
-}
+#foot {}
 
 
 
@@ -98,21 +69,44 @@ main {
         display: flex;
         flex-direction: row;
         margin: 0 var(--space-2xl);
-        width: 100%;
-        max-height: 500px;
+        width: auto;
+        max-height: 700px;
         border-radius: 24px;
-        overflow-x: hidden;
+        overflow: hidden;
     }
 
     .connexion-hero {
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         flex: 3 1 auto;
         min-width: 50%;
+        overflow: hidden;
         background: linear-gradient(135deg, rgba(var(--first-color), 1), rgba(var(--second-color), 1));
+    }
+
+    .connexion-hero div:first-child {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .connexion-hero div img {
+        width: 100%;
+        filter: drop-shadow(0 0 10px rgba(var(--first-color), 1));
+    }
+
+    .connexion-hero p {
+        color: white;
+        font-weight: var(--fw-semibold);
+        font-size: var(--text-2xl);
     }
 
     .form-content {
         padding: var(--space-lg);
         flex: 2 1 auto;
     }
+
 }

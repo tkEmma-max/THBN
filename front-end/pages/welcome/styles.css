@@ -1,0 +1,80 @@
+/*---------- hero -------------*/
+
+.hero {
+    margin: var(--space-2xl) var(--space-lg);
+}
+
+.hero p {
+    background: linear-gradient(135deg, rgba(var(--first-color), 1), rgba(var(--second-color), 1));
+
+    font-weight: var(--fw-bold);
+    font-size: var(--text-2xl);
+    line-height: 1.3;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/*---------- CTA ----------------*/
+.CTA {
+    margin: var(--space-2xl) var(--space-lg);
+    justify-content: space-between;
+    max-width: 500px;
+}
+
+.CTA button a {
+    color: white;
+    text-decoration: none;
+    font-weight: var(--fw-medium);
+}
+
+/*----------why shouse us ------*/
+.why-shoose-us {
+    margin: var(--space-2xl) var(--space-lg) var(--space-lg);
+}
+
+.why-shoose-us div {
+    justify-content: space-between;
+    align-items: center;
+    font-weight: var(--fw-semibold);
+    gap: var(--space-lg);
+}
+
+.why-shoose-us>p {
+    font-weight: var(--fw-semibold);
+    text-align: center;
+    font-size: var(--text-lg);
+}
+
+.why-shoose-item {
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    border-radius: 10px;
+    box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.2);
+    transition: all var(--transition-slow);
+}
+
+.why-shoose-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-all-around) rgba(var(--first-color), 0.5);
+}
+
+.why-shoose-item h3 {
+    width: 100%;
+    text-align: left;
+    font-weight: var(--fw-medium);
+    font-size: var(--text-lg);
+}
+
+
+@media screen and (min-width: 600px) {
+    .why-shoose-all {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        align-content: center;
+        gap: var(--space-lg);
+    }
+}
