@@ -1,0 +1,86 @@
+/* here it's the code for the style of the categories section in the welcome page */
+.categories {
+    border-top: 2px solid rgba(var(--second-color), 0.5);
+    padding: var(--space-md) 0 0;
+    background: white;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    margin: var(--space-2xl) var(--space-lg);
+    transition: all var(--transition-slow);
+}
+
+.categories:hover {
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    background: rgba(var(--second-color), 0.05);
+    box-shadow: var(--shadow-all-around) rgba(var(--second-color), 0.3);
+}
+
+.categories > p {
+    font-weight: var(--fw-semibold);
+    font-size: var(--text-xl);
+    color: rgba(var(--second-color), 1);
+}
+
+.categories-container {
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.category {
+    background: white;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-md);
+    min-width: 250px;
+    height: 100%;
+    padding: var(--space-lg);
+    border-radius: 10px;
+    box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.2);
+    transition: all var(--transition-slow);
+}
+
+.category:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-all-around) rgba(var(--second-color), 0.5);
+}
+
+.category h3 {
+    width: 100%;
+    text-align: left;
+    font-weight: var(--fw-medium);
+    font-size: var(--text-lg);
+    flex-wrap: nowrap;
+    gap: var(--space-sm);
+}
+
+.category h3 span{
+    font-weight: inherit;
+}
+
+.category:hover h3{
+    color: rgba(var(--second-color), 1);
+}
+
+.category p {
+    font-weight: var(--fw-medium);
+    color: rgba(var(--gray-color), 1);
+}
+
+.categories:hover p {
+   font-weight: var(--fw-semibold);
+}
+
+@media screen and (min-width: 600px) {
+    .categories {
+        padding: var(--space-lg) 0 0;
+    }
+
+    .categories-container {
+        padding: var(--space-lg);
+    }
+}

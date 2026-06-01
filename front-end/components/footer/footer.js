@@ -6,6 +6,7 @@ export class Footer {
 		if (!place) return;
 		place.className = 'footer-container flex-column';
 		this.buildFooter(place);
+		this.element = place;
 	}
 
 	//construction du Footer
@@ -21,5 +22,17 @@ export class Footer {
                 <div class="footer-socials flex-row">
                 </div>
         `;
+	}
+
+	position(){
+		const main = document.querySelector("main")
+		console.log(main)
+		if (main && this.element){
+			const main_height = main.offsetHeight;
+			if (main_height < document.body.offsetHeight){
+				this.element.style.position = "fixed";
+				this.element.style.bottom = 0;
+			}
+		}
 	}
 }

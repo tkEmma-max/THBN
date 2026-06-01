@@ -29,23 +29,35 @@
 
 /*----------why shouse us ------*/
 .why-shoose-us {
+    border-top: 2px solid rgba(var(--first-color), 0.5);
     margin: var(--space-2xl) var(--space-lg) var(--space-lg);
+    transition: var(--transition-slow);
 }
 
-.why-shoose-us div {
+.why-shoose-us:hover{
+    border-radius: 20px;
+    background: rgba(var(--first-color), 0.05);
+    box-shadow: var(--shadow-all-around) rgba(var(--first-color), 0.3);
+}
+
+.why-shoose-all {
     justify-content: space-between;
     align-items: center;
     font-weight: var(--fw-semibold);
     gap: var(--space-lg);
+    padding: 0 var(--space-md);
 }
 
-.why-shoose-us>p {
+.why-shoose-us > p {
     font-weight: var(--fw-semibold);
     text-align: center;
-    font-size: var(--text-lg);
+    font-size: var(--text-xl);
+    margin: var(--space-lg) 0;
 }
 
 .why-shoose-item {
+    height: 100%;
+    background: white;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -66,15 +78,21 @@
     text-align: left;
     font-weight: var(--fw-medium);
     font-size: var(--text-lg);
+    flex-wrap: nowrap;
+    gap: var(--space-sm);
 }
 
+.why-shoose-item:hover h3{
+    color: rgba(var(--first-color), 1);
+}
 
 @media screen and (min-width: 600px) {
+    .why-shoose-us{
+        padding: var(--space-lg);
+    }
     .why-shoose-all {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        justify-content: center;
-        align-content: center;
         gap: var(--space-lg);
     }
 }

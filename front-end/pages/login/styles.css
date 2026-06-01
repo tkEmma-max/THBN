@@ -2,10 +2,14 @@
 //         login page           //
 ///////////////////////////////*/
 
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 main {
-    margin: 0 var(--space-lg);
-    transform: translateY(10%);
+ 
 }
 
 .connexion-hero {
@@ -13,6 +17,7 @@ main {
 }
 
 .form-content {
+    width: 100%;
     gap: var(--space-xl);
 }
 
@@ -59,7 +64,10 @@ main {
 }
 
 
-#foot {}
+    #foot{
+        position: fixed;
+        bottom: 0;
+    }
 
 
 
@@ -68,13 +76,19 @@ main {
         box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.5);
         display: flex;
         flex-direction: row;
-        margin: 0 var(--space-2xl);
-        width: auto;
+        max-width: 1000px;
+        min-width: 800px;
         max-height: 700px;
         border-radius: 24px;
         overflow: hidden;
+        transition: var(--transition-slow)
     }
 
+    main:hover{
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-all-around) rgba(var(--first-color), 0.5);
+        
+    }
     .connexion-hero {
         display: flex;
         justify-content: center;
@@ -91,6 +105,15 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
+        animation: moov-logo infinite 2s;
+    }
+
+        @keyframes moov-logo {
+        50% {transform: translateY(0);}
+
+        50% {
+            transform: translateY(7px);
+        }
     }
 
     .connexion-hero div img {
