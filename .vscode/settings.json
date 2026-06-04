@@ -1,8 +1,24 @@
 {
+    "files.autoSave": "afterDelay",
+    "tabnine.experimentalAutoImports": true,
     "tabnine.ignoreCertificateErrors": true,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "github.copilot.enable": {
-        "plaintext": true,
         "markdown": true,
+        "plaintext": true,
         "scminput": true
-    }
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "workbench.editor.empty.hint": "hidden",
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilotcli:claude-haiku-4.5",
+    "editor.formatOnSave": true,
+    "liveServer.settings.port": 5501
 }
