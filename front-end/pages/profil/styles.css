@@ -1,6 +1,6 @@
 main {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1500px;
   margin: var(--space-lg) auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -40,7 +40,7 @@ section:hover > h2 {
   aspect-ratio: 1 / 1;
   overflow: hidden;
   object-fit: containt;
-  max-width: 250px;
+  max-width: 200px;
 }
 
 .profil-container img {
@@ -113,4 +113,18 @@ section:hover > h2 {
 #my-services > div {
   min-width: 280px;
   height: 100%;
+}
+
+/*///////////////////////////////////
+//    style for review section    //
+/////////////////////////////////*/
+#reviews {
+}
+#my-reviews-container {
+  background: transparent;
+  max-height: 300px;
+  padding: var(--space-xs);
+  margin-top: var(--space-md);
+  gap: var(--space-md);
+  overflow-y: auto;
 }

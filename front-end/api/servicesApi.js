@@ -10,7 +10,7 @@ const services = [
 	{
 		id: 1,
 		title: "Création d'application web sur mesure",
-		picture: '/front-end/assets/pictures/service1.png',
+		picture: '/front-end/assets/pictures/createAPP.png',
 		rating: 4.8,
 		reviews: 234,
 		currency: 'XAF',
@@ -63,7 +63,7 @@ const services = [
 	{
 		id: 2,
 		title: "API RESTful avec Django",
-		picture: '/front-end/assets/pictures/service2.png',
+		picture: '/front-end/assets/pictures/APIrest.png',
 		rating: 4.9,
 		reviews: 89,
 		currency: 'XAF',
@@ -119,7 +119,7 @@ const services = [
 	{
 		id: 3,
 		title: "Application mobile React Native",
-		picture: '/front-end/assets/pictures/service1.png',
+		picture: '/front-end/assets/pictures/AppMobil.png',
 		rating: 4.9,
 		reviews: 67,
 		currency: 'XAF',
@@ -176,7 +176,7 @@ const services = [
 	{
 		id: 4,
 		title: "Site e-commerce WordPress",
-		picture: '/front-end/assets/pictures/service2.png',
+		picture: '/front-end/assets/pictures/E-com.png',
 		rating: 4.7,
 		reviews: 156,
 		currency: 'XAF',
@@ -235,7 +235,7 @@ const services = [
 	{
 		id: 5,
 		title: "Montage vidéo professionnel",
-		picture: '/front-end/assets/pictures/service1.png',
+		picture: '/front-end/assets/pictures/video-edit.png',
 		rating: 4.7,
 		reviews: 312,
 		currency: 'XAF',
@@ -291,7 +291,7 @@ const services = [
 	{
 		id: 6,
 		title: "Création de logo personnalisé",
-		picture: '/front-end/assets/pictures/service2.png',
+		picture: '/front-end/assets/pictures/logoPer.png',
 		rating: 4.9,
 		reviews: 567,
 		currency: 'XAF',
@@ -346,7 +346,7 @@ const services = [
 	{
 		id: 7,
 		title: "Design d'interface utilisateur",
-		picture: '/front-end/assets/pictures/service2.png',
+		picture: '/front-end/assets/pictures/interApp.png',
 		rating: 4.7,
 		reviews: 203,
 		currency: 'XAF',
@@ -401,7 +401,7 @@ const services = [
 	{
 		id: 14,
 		title: "Illustration numérique personnalisée",
-		picture: '/front-end/assets/pictures/service2.png',
+		picture: '/front-end/assets/pictures/illustrations.png',
 		rating: 4.9,
 		reviews: 145,
 		currency: 'XAF',
@@ -459,7 +459,7 @@ const services = [
 	{
 		id: 8,
 		title: "SEO : Référencement Google",
-		picture: '/front-end/assets/pictures/service1.png',
+		picture: '/front-end/assets/pictures/ref.png',
 		rating: 4.6,
 		reviews: 178,
 		currency: 'XAF',
@@ -514,7 +514,7 @@ const services = [
 	{
 		id: 9,
 		title: "Rédaction d'articles SEO",
-		picture: '/front-end/assets/pictures/service2.png',
+		picture: '/front-end/assets/pictures/SEO.png',
 		rating: 4.8,
 		reviews: 892,
 		currency: 'XAF',
@@ -569,7 +569,7 @@ const services = [
 	{
 		id: 10,
 		title: "Rédaction de pages de vente",
-		picture: '/front-end/assets/pictures/service1.png',
+		picture: '/front-end/assets/pictures/vente.png',
 		rating: 4.8,
 		reviews: 423,
 		currency: 'XAF',
@@ -626,7 +626,7 @@ const services = [
 	{
 		id: 11,
 		title: "Analyse de données avec Python",
-		picture: '/front-end/assets/pictures/service1.png',
+		picture: '/front-end/assets/pictures/données.png',
 		rating: 5.0,
 		reviews: 45,
 		currency: 'XAF',
@@ -681,7 +681,7 @@ const services = [
 	{
 		id: 12,
 		title: "Chatbot intelligent avec IA",
-		picture: '/front-end/assets/pictures/service2.png',
+		picture: '/front-end/assets/pictures/chatbot.png',
 		rating: 4.9,
 		reviews: 38,
 		currency: 'XAF',
@@ -737,7 +737,7 @@ const services = [
 	{
 		id: 13,
 		title: "Automatisation de rapports avec Power BI",
-		picture: '/front-end/assets/pictures/service1.png',
+		picture: '/front-end/assets/pictures/BMI.png',
 		rating: 4.8,
 		reviews: 72,
 		currency: 'XAF',
@@ -825,6 +825,164 @@ const categories = [
   },
 ];
 
+
+const myServices = [
+  {
+    id: 101,
+    title: "Création de site web React",
+    picture: "/front-end/assets/pictures/service1.png",
+    rating: 4.8,
+    reviews: 156,
+    currency: "XAF",
+    category: "Développement",
+    description: `
+      <p>
+        Je crée des <strong>sites web modernes</strong> avec React et Node.js,
+        optimisés pour la performance et le SEO.
+      </p>
+      <ul>
+        <li>Design responsive et animations fluides</li>
+        <li>Backend API RESTful sécurisé</li>
+        <li>Déploiement et hébergement inclus</li>
+      </ul>
+    `,
+    owner: {
+      pseudo: "@johndoe",
+      profilePicture: "/front-end/assets/pictures/profil1.jpg",
+      profession: "Web Developer"
+    },
+    packs: [
+      {
+        name: "Pack Basic",
+        price: 80000,
+        delivery: "7 jours",
+        features: [
+          "Site vitrine 5 pages",
+          "Design responsive",
+          "Formulaire de contact",
+          "Hébergement 1 an"
+        ]
+      },
+      {
+        name: "Pack Premium",
+        price: 200000,
+        delivery: "14 jours",
+        features: [
+          "Site complet 10+ pages",
+          "Backend sur mesure",
+          "Paiement en ligne intégré",
+          "Dashboard admin",
+          "SEO avancé",
+          "Maintenance 3 mois"
+        ]
+      }
+    ]
+  },
+  {
+    id: 102,
+    title: "API RESTful sur mesure",
+    picture: "/front-end/assets/pictures/service2.png",
+    rating: 4.9,
+    reviews: 89,
+    currency: "XAF",
+    category: "Développement",
+    description: `
+      <p>
+        Je développe des <strong>API RESTful robustes</strong> avec Django REST
+        Framework, prêtes pour la production.
+      </p>
+      <ul>
+        <li>Authentification JWT sécurisée</li>
+        <li>Documentation Swagger interactive</li>
+        <li>Tests automatisés et déploiement CI/CD</li>
+      </ul>
+    `,
+    owner: {
+      pseudo: "@johndoe",
+      profilePicture: "/front-end/assets/pictures/profil1.jpg",
+      profession: "Web Developer"
+    },
+    packs: [
+      {
+        name: "Pack Basic",
+        price: 150000,
+        delivery: "10 jours",
+        features: [
+          "API RESTful simple",
+          "5 endpoints CRUD",
+          "Authentification basique",
+          "Documentation minimale"
+        ]
+      },
+      {
+        name: "Pack Premium",
+        price: 350000,
+        delivery: "21 jours",
+        features: [
+          "API complète multi-modules",
+          "Authentification avancée JWT",
+          "Documentation Swagger complète",
+          "Tests unitaires",
+          "Dockerisation",
+          "Support 1 mois"
+        ]
+      }
+    ]
+  },
+  {
+    id: 103,
+    title: "Maintenance et optimisation web",
+    picture: "/front-end/assets/pictures/service1.png",
+    rating: 4.7,
+    reviews: 62,
+    currency: "XAF",
+    category: "Développement",
+    description: `
+      <p>
+        Je maintiens et optimise vos <strong>sites web existants</strong>
+        pour des performances maximales.
+      </p>
+      <ul>
+        <li>Correction de bugs rapide</li>
+        <li>Optimisation des performances</li>
+        <li>Mise à jour de sécurité</li>
+      </ul>
+    `,
+    owner: {
+      pseudo: "@johndoe",
+      profilePicture: "/front-end/assets/pictures/profil1.jpg",
+      profession: "Web Developer"
+    },
+    packs: [
+      {
+        name: "Pack Basic",
+        price: 50000,
+        delivery: "3 jours",
+        features: [
+          "Correction de bugs",
+          "Mise à jour CMS",
+          "Sauvegarde du site",
+          "Rapport d'intervention"
+        ]
+      },
+      {
+        name: "Pack Premium",
+        price: 120000,
+        delivery: "7 jours",
+        features: [
+          "Audit complet du site",
+          "Optimisation vitesse",
+          "Sécurisation avancée",
+          "SEO technique",
+          "Maintenance mensuelle",
+          "Support prioritaire 24/7"
+        ]
+      }
+    ]
+  }
+];
+
+
 export function getCategories() {
   return categories;
 }
@@ -836,4 +994,8 @@ export function getServices() {
 export function getService(id_service) {
   const service = services.find((s) => s.id == id_service);
   return service;
+}
+
+export function getMyServices(){
+	return myServices;
 }

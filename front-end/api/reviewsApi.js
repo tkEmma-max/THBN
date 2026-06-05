@@ -11,7 +11,7 @@ const reviews = [
     created_at: "2026-05-20",
     reviewer: {
       pseudo: "@marieL",
-      profilePicture: "/front-end/assets/pictures/anonyme.svg",
+      profilePicture: "/front-end/assets/pictures/profil3.jpg",
       profession: "Entrepreneure"
     }
   },
@@ -22,7 +22,7 @@ const reviews = [
     created_at: "2026-04-15",
     reviewer: {
       pseudo: "@pierreT",
-      profilePicture: "/front-end/assets/pictures/anonyme.svg",
+      profilePicture: "/front-end/assets/pictures/profil4.jpg",
       profession: "Chef de projet"
     }
   },
@@ -44,7 +44,7 @@ const reviews = [
     created_at: "2026-02-28",
     reviewer: {
       pseudo: "@thomasR",
-      profilePicture: "/front-end/assets/pictures/anonyme.svg",
+      profilePicture: "/front-end/assets/pictures/profil5.jpg",
       profession: "Freelance"
     }
   },

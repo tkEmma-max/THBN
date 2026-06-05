@@ -11,6 +11,11 @@
       rel="stylesheet"
       href="../../components/service-card/service_card.css"
     />
+    <link rel="stylesheet" href="../../components/etoile/etoile.css" />
+    <link
+      rel="stylesheet"
+      href="../../components/review-card/review-card.css"
+    />
     <link rel="stylesheet" href="/front-end/assets/styles/global.css" />
     <title>profil</title>
   </head>
@@ -28,28 +33,26 @@
         </div>
         <div>
           <div class="personal-infos flex-column">
-            <h1 class="name">John Doe</h1>
-            <div class="pseudo">@johndoe</div>
-            <p class="email">john.doe@example.com</p>
+            <h1 class="name"></h1>
+            <div class="pseudo"></div>
+            <p class="email"></p>
           </div>
           <div class="rating-infos flex-row">
-            <div class="rating">4.5</div>
-            <div class="reviews">(100 avis)</div>
-            <div class="projects">50 projects completed</div>
+            <div class="rating"></div>
+            <div class="reviews"></div>
+            <div class="projects"></div>
           </div>
           <div class="professinal-infos flex-row">
-            <h2 class="job-title">Web Developer</h2>
-            <p class="experience">5 years of experience</p>
-            <div class="since">Since: 2018</div>
+            <h2 class="job-title"></h2>
+            <p class="experience"></p>
+            <div class="since"></div>
           </div>
         </div>
       </section>
 
       <section id="about">
-        <h2>About Me</h2>
-        <p>
-          Hello, I'm John Doe, a passionate web developer with 5 years of
-          experience. I love creating beautiful and functional websites.
+        <h2>A Propos</h2>
+        <p class="about-content">
         </p>
       </section>
 
@@ -131,7 +134,7 @@
                 <span class="service-delivery"></span> jours
               </p>
             </div>
-            <div class="service-profil flex-row" style="display:none;">
+            <div class="service-profil flex-row" style="display: none">
               <div class="service-profil-container profil"></div>
               <div class="service-profil-infos flex-column">
                 <p class="service-profil-pseudo"></p>
@@ -169,17 +172,21 @@
 
       <section id="reviews">
         <template id="review-template" class="flex-column">
-          <div class="review flex-row">
-            <div class="review-profil-container profil"></div>
-            <div class="review-infos flex-column">
-              <p class="review-pseudo"></p>
-              <p class="review-prof"></p>
-              <p class="review-note flex-row">
-                <span class="review-note-value">4.5</span
-                ><span class="review-note-star"></span>
-              </p>
-              <p class="review-comment">Great work, highly recommended!</p>
+          <div class="review-card flex-column">
+            <div class="review-infos flex-row">
+              <div class="review-profil-container profil">
+                <img src="" alt="review-profil" />
+              </div>
+              <div class="review-profil-infos flex-column">
+                <p class="review-pseudo"></p>
+                <p class="review-note flex-row">
+                  <span class="review-note-value"></span
+                  ><span class="review-note-star"></span>
+                </p>
+              </div>
             </div>
+            <p class="review-comment">Great work, highly recommended!</p>
+            <p class="review-date"></p>
           </div>
         </template>
 
@@ -194,5 +201,6 @@
     <script src="services.js" type="module"></script>
     <script src="portfolio.js" type="module"></script>
     <script src="reviews.js" type="module"></script>
+    <script src="user.js" type="module"></script>
   </body>
 </html>

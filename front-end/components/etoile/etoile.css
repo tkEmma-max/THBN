@@ -5,12 +5,11 @@
 }
 
 .rating-stars .star {
-  display: flex;
+  display: inline;
   line-height: 0;
 }
 
-.star-half svg{
-color: black;
-fill: black;
+.star-half svg {
+  color: black;
+  fill: black;
 }
-

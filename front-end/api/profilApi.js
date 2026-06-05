@@ -2,221 +2,216 @@
 
 //simulated profil data
 
-// ==================== APP PROFILES ====================
-// GET /api/profiles/johndoe/
 const profile = {
   id: 1,
   user_id: 1,
-  pseudo: "@johndoe",
+  pseudo: "@kmercier",
   profile_picture: "/front-end/assets/pictures/profil1.jpg",
   profession: "Web Developer",
   job_title: "Développeur Full Stack",
   about: `
     <p>
-      Hello, I'm <strong>John Doe</strong>, a passionate web developer with 
-      <strong>5 years of experience</strong>.
+      Hello, moi c'est <strong>Kévin Mercier</strong>, développeur full stack avec 
+      <strong>5 ans d'expérience</strong>.
     </p>
-
     <p>
-      I love creating <strong>beautiful and functional websites</strong> 
-      that deliver real value to users.
+      Je crée des <strong>applications web sur mesure</strong> 
+      qui répondent vraiment à vos besoins.
     </p>
-
     <ul>
       <li>Spécialisé en <em>React, Django et Node.js</em></li>
       <li>Plus de 50 projets livrés avec succès</li>
       <li>Communication claire et délais respectés</li>
     </ul>
-
     <p>
       Mon objectif : transformer vos idées en 
       <strong>solutions digitales performantes</strong>.
     </p>
   `,
   experience_years: 5,
-  since: "2018",
+  since: "2019",
   rating: 4.5,
   reviews_count: 100,
   projects_completed: 50,
-  skills: [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React",
-    "Node.js",
-    "Python",
-    "Django",
-    "PostgreSQL"
-  ],
-  
-  stats: {
-    response_time: "2 heures",
-    response_rate: 98,
-    orders_completed: 234,
-    member_since: "Mars 2018"
-  }
+  skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Python", "Django", "PostgreSQL"]
 };
 
 
-const services = [
+const profiles = [
   {
-    id: 101,
-    title: "Création de site web React",
-    picture: "/front-end/assets/pictures/service1.png",
-    rating: 4.8,
-    reviews: 156,
-    currency: "XAF",
-    category: "Développement",
-    description: `
+    id: 1,
+    user_id: 1,
+    pseudo: "@johndoe",
+    profile_picture: "/front-end/assets/pictures/profil1.jpg",
+    profession: "Web Developer",
+    job_title: "Développeur Full Stack",
+    about: `
       <p>
-        Je crée des <strong>sites web modernes</strong> avec React et Node.js,
-        optimisés pour la performance et le SEO.
+        Hello, I'm <strong>John Doe</strong>, a passionate web developer with 
+        <strong>5 years of experience</strong>.
+      </p>
+      <p>
+        I love creating <strong>beautiful and functional websites</strong> 
+        that deliver real value to users.
       </p>
       <ul>
-        <li>Design responsive et animations fluides</li>
-        <li>Backend API RESTful sécurisé</li>
-        <li>Déploiement et hébergement inclus</li>
+        <li>Spécialisé en <em>React, Django et Node.js</em></li>
+        <li>Plus de 50 projets livrés avec succès</li>
+        <li>Communication claire et délais respectés</li>
       </ul>
+      <p>
+        Mon objectif : transformer vos idées en 
+        <strong>solutions digitales performantes</strong>.
+      </p>
     `,
-    owner: {
-      pseudo: "@johndoe",
-      profilePicture: "/front-end/assets/pictures/profil1.jpg",
-      profession: "Web Developer"
-    },
-    packs: [
-      {
-        name: "Pack Basic",
-        price: 80000,
-        delivery: "7 jours",
-        features: [
-          "Site vitrine 5 pages",
-          "Design responsive",
-          "Formulaire de contact",
-          "Hébergement 1 an"
-        ]
-      },
-      {
-        name: "Pack Premium",
-        price: 200000,
-        delivery: "14 jours",
-        features: [
-          "Site complet 10+ pages",
-          "Backend sur mesure",
-          "Paiement en ligne intégré",
-          "Dashboard admin",
-          "SEO avancé",
-          "Maintenance 3 mois"
-        ]
-      }
-    ]
+    experience_years: 5,
+    since: "2018",
+    rating: 4.5,
+    reviews_count: 100,
+    projects_completed: 50,
+    skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Python", "Django", "PostgreSQL"]
   },
   {
-    id: 102,
-    title: "API RESTful sur mesure",
-    picture: "/front-end/assets/pictures/service2.png",
+    id: 2,
+    user_id: 2,
+    pseudo: "@marieL",
+    profile_picture: "/front-end/assets/pictures/anonyme.svg",
+    profession: "Graphiste",
+    job_title: "Designer Graphique & Illustratrice",
+    about: `
+      <p>
+        Je suis <strong>Marie Laurent</strong>, graphiste passionnée avec 
+        <strong>6 ans d'expérience</strong> en design print et digital.
+      </p>
+      <p>
+        Je crée des <strong>identités visuelles uniques</strong> 
+        qui racontent votre histoire.
+      </p>
+      <ul>
+        <li>Spécialisée en <em>branding et illustration</em></li>
+        <li>Plus de 80 marques accompagnées</li>
+        <li>Respect scrupuleux des délais</li>
+      </ul>
+      <p>
+        Votre marque mérite un design <strong>qui vous ressemble vraiment</strong>.
+      </p>
+    `,
+    experience_years: 6,
+    since: "2019",
     rating: 4.9,
-    reviews: 89,
-    currency: "XAF",
-    category: "Développement",
-    description: `
-      <p>
-        Je développe des <strong>API RESTful robustes</strong> avec Django REST
-        Framework, prêtes pour la production.
-      </p>
-      <ul>
-        <li>Authentification JWT sécurisée</li>
-        <li>Documentation Swagger interactive</li>
-        <li>Tests automatisés et déploiement CI/CD</li>
-      </ul>
-    `,
-    owner: {
-      pseudo: "@johndoe",
-      profilePicture: "/front-end/assets/pictures/profil1.jpg",
-      profession: "Web Developer"
-    },
-    packs: [
-      {
-        name: "Pack Basic",
-        price: 150000,
-        delivery: "10 jours",
-        features: [
-          "API RESTful simple",
-          "5 endpoints CRUD",
-          "Authentification basique",
-          "Documentation minimale"
-        ]
-      },
-      {
-        name: "Pack Premium",
-        price: 350000,
-        delivery: "21 jours",
-        features: [
-          "API complète multi-modules",
-          "Authentification avancée JWT",
-          "Documentation Swagger complète",
-          "Tests unitaires",
-          "Dockerisation",
-          "Support 1 mois"
-        ]
-      }
-    ]
+    reviews_count: 234,
+    projects_completed: 80,
+    skills: ["Photoshop", "Illustrator", "Figma", "InDesign", "Procreate", "After Effects"]
   },
   {
-    id: 103,
-    title: "Maintenance et optimisation web",
-    picture: "/front-end/assets/pictures/service1.png",
-    rating: 4.7,
-    reviews: 62,
-    currency: "XAF",
-    category: "Développement",
-    description: `
+    id: 3,
+    user_id: 3,
+    pseudo: "@pierreT",
+    profile_picture: "/front-end/assets/pictures/anonyme.svg",
+    profession: "Data Analyst",
+    job_title: "Data Analyst & Consultant BI",
+    about: `
       <p>
-        Je maintiens et optimise vos <strong>sites web existants</strong>
-        pour des performances maximales.
+        Je suis <strong>Pierre Touré</strong>, data analyst avec 
+        <strong>4 ans d'expérience</strong> en analyse de données.
+      </p>
+      <p>
+        Je transforme vos <strong>données brutes en insights</strong> 
+        actionnables pour votre business.
       </p>
       <ul>
-        <li>Correction de bugs rapide</li>
-        <li>Optimisation des performances</li>
-        <li>Mise à jour de sécurité</li>
+        <li>Expert en <em>Python, SQL et Power BI</em></li>
+        <li>Plus de 30 entreprises accompagnées</li>
+        <li>Rapports clairs et automatisés</li>
       </ul>
+      <p>
+        La data n'a de valeur que si elle <strong>guide vos décisions</strong>.
+      </p>
     `,
-    owner: {
-      pseudo: "@johndoe",
-      profilePicture: "/front-end/assets/pictures/profil1.jpg",
-      profession: "Web Developer"
-    },
-    packs: [
-      {
-        name: "Pack Basic",
-        price: 50000,
-        delivery: "3 jours",
-        features: [
-          "Correction de bugs",
-          "Mise à jour CMS",
-          "Sauvegarde du site",
-          "Rapport d'intervention"
-        ]
-      },
-      {
-        name: "Pack Premium",
-        price: 120000,
-        delivery: "7 jours",
-        features: [
-          "Audit complet du site",
-          "Optimisation vitesse",
-          "Sécurisation avancée",
-          "SEO technique",
-          "Maintenance mensuelle",
-          "Support prioritaire 24/7"
-        ]
-      }
-    ]
+    experience_years: 4,
+    since: "2020",
+    rating: 4.7,
+    reviews_count: 67,
+    projects_completed: 30,
+    skills: ["Python", "SQL", "Power BI", "Excel", "Tableau", "Pandas", "NumPy"]
+  },
+  {
+    id: 4,
+    user_id: 4,
+    pseudo: "@sophieB",
+    profile_picture: "/front-end/assets/pictures/profil1.jpg",
+    profession: "UX Designer",
+    job_title: "UX/UI Designer Freelance",
+    about: `
+      <p>
+        Je suis <strong>Sophie Bello</strong>, UX designer avec 
+        <strong>3 ans d'expérience</strong> en design d'interfaces.
+      </p>
+      <p>
+        Je conçois des <strong>expériences utilisateur intuitives</strong> 
+        qui augmentent vos conversions.
+      </p>
+      <ul>
+        <li>Spécialisée en <em>Figma et prototypage</em></li>
+        <li>Plus de 20 applications designées</li>
+        <li>Tests utilisateurs inclus dans ma démarche</li>
+      </ul>
+      <p>
+        Un bon design est celui <strong>qu'on ne remarque pas</strong>.
+      </p>
+    `,
+    experience_years: 3,
+    since: "2020",
+    rating: 4.6,
+    reviews_count: 42,
+    projects_completed: 20,
+    skills: ["Figma", "Sketch", "InVision", "Adobe XD", "Miro", "Zeplin"]
+  },
+  {
+    id: 5,
+    user_id: 5,
+    pseudo: "@thomasR",
+    profile_picture: "/front-end/assets/pictures/anonyme.svg",
+    profession: "Rédacteur Web",
+    job_title: "Rédacteur Web SEO & Copywriter",
+    about: `
+      <p>
+        Je suis <strong>Thomas Romain</strong>, rédacteur web avec 
+        <strong>3 ans d'expérience</strong> en création de contenu.
+      </p>
+      <p>
+        J'écris des <strong>textes qui convertissent</strong> 
+        et qui plaisent à Google.
+      </p>
+      <ul>
+        <li>Spécialisé en <em>SEO et copywriting</em></li>
+        <li>Plus de 500 articles rédigés</li>
+        <li>Contenu 100% original garanti</li>
+      </ul>
+      <p>
+        Les mots justes pour <strong>faire grandir votre business</strong>.
+      </p>
+    `,
+    experience_years: 3,
+    since: "2021",
+    rating: 4.8,
+    reviews_count: 156,
+    projects_completed: 500,
+    skills: ["SEO", "Copywriting", "WordPress", "Google Analytics", "Semrush"]
   }
 ];
-export function getProfileData() {
+
+
+
+
+export function getMyProfil() {
     return profile;
 }
 
-export function getMyServices() {
-    return services;
+export function getProfils() {
+    return profiles;
+}
+
+export function getProfil(id, profils_list) {
+  return profils_list.find(profil => profil.id = id);
 }

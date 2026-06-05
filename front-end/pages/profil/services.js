@@ -1,4 +1,4 @@
-import { getMyServices } from "../../api/profilApi.js";
+import { getMyServices } from "../../api/servicesApi.js";
 import { renderServices } from "../../components/service-card/service_card.js";
 
 

@@ -6,9 +6,11 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "github.copilot.enable": {
-        "markdown": true,
+        "*": true,
         "plaintext": true,
-        "scminput": true
+        "markdown": true,
+        "scminput": true,
+        "javascript": true
     },
     "[javascript]": {
         "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
