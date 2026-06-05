@@ -17,6 +17,7 @@
       href="../../components/review-card/review-card.css"
     />
     <link rel="stylesheet" href="/front-end/assets/styles/global.css" />
+    <link rel="stylesheet" href="../../components/portfolio-card/portfolio-card.css">
     <title>profil</title>
   </head>
 
@@ -52,8 +53,7 @@
 
       <section id="about">
         <h2>A Propos</h2>
-        <p class="about-content">
-        </p>
+        <p class="about-content"></p>
       </section>
 
       <section id="skills">
@@ -67,19 +67,23 @@
       </section>
 
       <section id="portfolio">
-        <template id="portofolio-template">
+        <template id="portfolio-template">
           <div class="project">
-            <img
-              src="/front-end/assets/pictures/project1.jpg"
-              alt="Project 1"
-              class="project-image"
-            />
+            <div  class="project-img-content">
+              <img
+                src="/front-end/assets/pictures/project1.jpg"
+                alt="Project 1"
+                class="project-image"
+              />
+            </div>
             <h3 class="project-title">Project Title</h3>
             <p class="project-description">Project description goes here.</p>
           </div>
         </template>
         <h2>Portfolio</h2>
         <p>Here are some of my recent projects:</p>
+
+        <article id="my-portfolios-container" class="flex-column"></article>
       </section>
 
       <section id="services">

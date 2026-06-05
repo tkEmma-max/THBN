@@ -128,3 +128,8 @@ section:hover > h2 {
   gap: var(--space-md);
   overflow-y: auto;
 }
+
+/*porfolio section */
+#my-portfolios-container {
+  gap: var(--space-md);
+}

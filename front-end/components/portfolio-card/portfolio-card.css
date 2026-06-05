@@ -1,0 +1,27 @@
+.project {
+  border: 1px solid rgba(var(--gray-color), 0.5);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+  width: 100%;
+  max-width: 250px;
+  transition: var(--transition-slow);
+}
+
+.project:hover{
+    border: none;
+    box-shadow: var(--shadow-bottom) rgba(var(--gray-color), 0.5);
+}
+.project-img-content {
+  max-width: 200px;
+  border-radius: var(--radius-md);
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.project-img-content img {
+  width: 100%;
+}
+
+.project-title {
+  font-weight: var(--fw-semibold);
+}

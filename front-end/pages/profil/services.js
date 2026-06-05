@@ -4,5 +4,5 @@ import { renderServices } from "../../components/service-card/service_card.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     const services = await getMyServices();
-    renderServices(services, 'my-services');
+    renderServies(services, 'my-services');
 });
