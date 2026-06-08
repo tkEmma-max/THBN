@@ -13,8 +13,6 @@ const profile = {
     <p>
       Hello, moi c'est <strong>Kévin Mercier</strong>, développeur full stack avec 
       <strong>5 ans d'expérience</strong>.
-    </p>
-    <p>
       Je crée des <strong>applications web sur mesure</strong> 
       qui répondent vraiment à vos besoins.
     </p>

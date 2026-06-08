@@ -28,7 +28,7 @@
     gap: var(--space-lg);
     padding: var(--space-lg);
     flex-wrap: nowrap;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .category {
