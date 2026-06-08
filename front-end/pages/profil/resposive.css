@@ -1,0 +1,75 @@
+main {
+  width: 100%;
+  max-width: 1500px;
+  margin: var(--space-lg) auto;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: var(--space-lg);
+}
+
+#hero {
+  grid-column: span 4;
+}
+#about {
+  grid-column: span 3;
+}
+
+#skills {
+  grid-column: span 1;
+}
+
+#portfolio {
+  grid-column: span 6;
+}
+
+#reviews {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+#services {
+  grid-column: span 6;
+}
+
+.service{
+    width: auto;
+    min-width: none;
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    margin: var(--space-sm) 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  section {
+    box-shadow: none;
+    border-top: 2px solid rgba(var(--gray-color), 0.3);
+    border-bottom: 2px solid rgba(var(--gray-color), 0.3);
+  }
+  section:first-child{
+    border: none;
+  }
+  section:hover{
+    border-color: rgba(var(--first-color), 0.5)
+  }
+
+  #hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profil-container {
+    max-width: 150px;
+  }
+  #my-portfolios-container {
+    flex-direction: column;
+  }
+  #my-services {
+    display: flex;
+    flex-direction: column;
+  }
+}
