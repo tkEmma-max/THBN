@@ -102,7 +102,7 @@
   text-overflow: ellipsis;
   margin: 5px 5px 0px 10px;
   font-weight: var(--fw-medium);
-  font-size: var(--text-lg);
+  font-size: var(--text-normal);
   line-height: 1.1;
 }
 
@@ -135,7 +135,8 @@
 
 .service-delivery,
 .service-prix {
-  color: rgba(var(--first-color), 1);
+  /*color: rgba(var(--first-color), 1);*/
+  color: black;
   font-weight: var(--fw-semibold);
   padding: 0 3px 0 3px;
 }

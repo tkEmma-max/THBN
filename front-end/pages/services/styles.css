@@ -18,6 +18,14 @@
     font-weight: var(--fw-bold);
 }
 
+.hero input{
+    border: none;
+    box-shadow: var(--shadow-all-around )rgba(255, 255, 255, 0.3);
+}
+
+.hero input::placeholder{
+    color: rgba(255, 255, 255, 0.7);
+}
 @media screen and (max-width: 760px) {
     .hero {
         margin: 10px;
