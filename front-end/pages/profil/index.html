@@ -4,21 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="/front-end/components/header/header.css" />
     <link rel="stylesheet" href="/front-end/components/footer/footer.css" />
-    <link
-      rel="stylesheet"
-      href="../../components/service-card/service_card.css"
-    />
+    <link rel="stylesheet" href="../../components/service-card/service_card.css"/>
     <link rel="stylesheet" href="../../components/etoile/etoile.css" />
-    <link
-      rel="stylesheet"
-      href="../../components/review-card/review-card.css"
-    />
+    <link rel="stylesheet" href="../../components/review-card/review-card.css"/>
     <link rel="stylesheet" href="resposive.css">
     <link rel="stylesheet" href="/front-end/assets/styles/global.css" />
     <link rel="stylesheet" href="../../components/portfolio-card/portfolio-card.css">
+   
     <title>profil</title>
   </head>
 
@@ -88,31 +84,12 @@
       </section>
 
       <section id="reviews">
-        <template id="review-template" class="flex-column">
-          <div class="review-card flex-column">
-            <div class="review-infos flex-row">
-              <div class="review-profil-container profil">
-                <img src="null" alt="review-profil" />
-              </div>
-              <div class="review-profil-infos flex-column">
-                <p class="review-pseudo"></p>
-                <p class="review-note flex-row">
-                  <span class="review-note-value"></span
-                  ><span class="review-note-star"></span>
-                </p>
-              </div>
-            </div>
-            <p class="review-comment">Great work, highly recommended!</p>
-            <p class="review-date"></p>
-          </div>
-        </template>
-
         <h2>Reviews</h2>
         <p>Here are some reviews from my clients:</p>
         <article id="my-reviews-container" class="flex-column"></article>
       </section>
 
-      <section id="services">
+      <section id="services" class="flex-column">
         <h2>Services</h2>
         <p>Here are the services I offer:</p>
         <article id="my-services" class="flex-row flex-row"></article>
@@ -121,6 +98,8 @@
     </main>
 
     <footer id="foot"></footer>
+
+    <!--appel des differents script de la page -->
     <script src="main.js" type="module"></script>
     <script src="services.js" type="module"></script>
     <script src="portfolio.js" type="module"></script>

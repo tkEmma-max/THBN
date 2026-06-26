@@ -6,7 +6,7 @@
     position: fixed;
     top: 0px;
     width: 100%;
-    padding: 10px 5px;
+    padding: var(--space-sm) var(--space-lg);
     gap: 10px;
     margin-bottom: 100px;
     z-index: 1000;
@@ -39,11 +39,99 @@
 
 
 
+/*-----------nav no onnected --------*/
+.hd-nav-noConnected {
+    gap: var(--space-lg);
+    position: relative;
+}
+
+.hd-nav-noConnected li {
+    list-style: none;
+}
+
+.hd-nav-noConnected li a {
+    font-weight: var(--fw-medium);
+    transition: var(--transition-slow);
+}
+
+.underliner {
+    position: absolute;
+    bottom: 0px;
+    height: 3px;
+    background: rgba(var(--second-color), 1);
+    border-radius: var(--radius-md);
+    transition: var(--transition-slow);
+}
+
+.hd-nav-noConnected li a:hover {
+    font-weight: var(--fw-semibold);
+    color: rgba(var(--second-color), 1);
+}
+
+.menu-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xs);
+    width: 40px;
+    border-radius: var(--radius-oval);
+    aspect-ratio: 1 / 1;
+    transition: var(--transition-slow);
+}
+
+.menu-mobile:active {
+    background: rgba(var(--second-color), 0.7);
+}
+
+.menu-mobile svg {
+    stroke-width: 2px;
+
+}
+
+
 /*------------reponsive design ------*/
 @media screen and (max-width: 600px) {
     .logo-container {
         width: 40px;
         height: auto;
     }
+
+    nav {
+        position: fixed;
+        right: var(--space-sm);
+        top: var(--space-2xl);
+        background: white;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.3);
+        padding: var(--space-sm) var(--space-lg);
+        transition: var(--transition-slow);
+        animation: nav_animation 0.20s ease;
+
+    }
+
+    @keyframes nav_animation {
+        from {
+            right: 0;
+            top: 0;
+        }
+
+        to {
+            right: var(--space-sm);
+            top: var(--space-2xl);
+        }
+
+    }
+
+    nav .hd-nav-noConnected {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        align-items: flex-start;
+        transition: var(--transition-slow);
+    }
+
+    .underliner {
+    }
+
 
 }

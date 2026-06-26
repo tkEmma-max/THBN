@@ -2,14 +2,10 @@
 //         login page           //
 ///////////////////////////////*/
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 main {
-
+    min-width: 360px;
+    padding: var(--space-xl) 0;
+    margin: var(--space-xl) auto;
 }
 
 
@@ -75,35 +71,33 @@ main {
 #next span,
 #previous span {
     font-weight: var(--fw-semibold);
-
 }
-#next span, #previous {
+
+#next,
+#previous {
     gap: var(--space-sm);
+    margin-top: var(--space-2xl);
 }
-
-#foot {
-    position: fixed;
-    bottom: 0;
-}
-
 
 
 @media screen and (min-width: 600px) {
     main {
+        padding: 0;
         box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.5);
         display: flex;
         flex-direction: row;
         width: auto;
         min-width: 800px;
-        height: 560px;
+        /*height: 560px;*/
         border-radius: 24px;
         overflow-x: hidden;
         transition: var(--transition-slow);
     }
 
-    main:hover{
+    main:hover {
         transform: translateY(-10px);
     }
+
     .connexion-hero {
         display: flex;
         justify-content: center;
@@ -151,4 +145,8 @@ main {
         display: none;
     }
 
+    #next,
+    #previous {
+        margin-top: 0px;
+    }
 }

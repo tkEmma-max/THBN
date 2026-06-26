@@ -2,14 +2,13 @@
 //         login page           //
 ///////////////////////////////*/
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+body {}
 
 main {
- 
+    min-width: 360px;
+    padding: var(--space-xl) 0;
+    margin: var(--space-xl) auto;
+
 }
 
 .connexion-hero {
@@ -64,15 +63,9 @@ main {
 }
 
 
-    #foot{
-        position: fixed;
-        bottom: 0;
-    }
-
-
-
 @media screen and (min-width: 600px) {
     main {
+        padding: 0;
         box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.5);
         display: flex;
         flex-direction: row;
@@ -84,11 +77,12 @@ main {
         transition: var(--transition-slow)
     }
 
-    main:hover{
+    main:hover {
         transform: translateY(-10px);
         box-shadow: var(--shadow-all-around) rgba(var(--first-color), 0.5);
-        
+
     }
+
     .connexion-hero {
         display: flex;
         justify-content: center;
@@ -108,8 +102,10 @@ main {
         animation: moov-logo infinite 2s;
     }
 
-        @keyframes moov-logo {
-        50% {transform: translateY(0);}
+    @keyframes moov-logo {
+        50% {
+            transform: translateY(0);
+        }
 
         50% {
             transform: translateY(7px);

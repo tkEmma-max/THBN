@@ -3,13 +3,13 @@
 //simulated profil data
 
 const profile = {
-  id: 1,
-  user_id: 1,
-  pseudo: "@kmercier",
-  profile_picture: "/front-end/assets/pictures/profil1.jpg",
-  profession: "Web Developer",
-  job_title: "Développeur Full Stack",
-  about: `
+	id: 1,
+	user_id: 1,
+	pseudo: '@kmercier',
+	profile_picture: '/front-end/assets/pictures/profil1.jpg',
+	profession: 'Web Developer',
+	job_title: 'Développeur Full Stack',
+	about: `
     <p>
       Hello, moi c'est <strong>Kévin Mercier</strong>, développeur full stack avec 
       <strong>5 ans d'expérience</strong>.
@@ -26,24 +26,32 @@ const profile = {
       <strong>solutions digitales performantes</strong>.
     </p>
   `,
-  experience_years: 5,
-  since: "2019",
-  rating: 4.5,
-  reviews_count: 100,
-  projects_completed: 50,
-  skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Python", "Django", "PostgreSQL"]
+	experience_years: 5,
+	since: '2019',
+	rating: 4.5,
+	reviews_count: 100,
+	projects_completed: 50,
+	skills: [
+		'HTML',
+		'CSS',
+		'JavaScript',
+		'React',
+		'Node.js',
+		'Python',
+		'Django',
+		'PostgreSQL'
+	]
 };
 
-
 const profiles = [
-  {
-    id: 1,
-    user_id: 1,
-    pseudo: "@johndoe",
-    profile_picture: "/front-end/assets/pictures/profil1.jpg",
-    profession: "Web Developer",
-    job_title: "Développeur Full Stack",
-    about: `
+	{
+		id: 1,
+		user_id: 1,
+		pseudo: '@johndoe',
+		profile_picture: '/front-end/assets/pictures/profil1.jpg',
+		profession: 'Web Developer',
+		job_title: 'Développeur Full Stack',
+		about: `
       <p>
         Hello, I'm <strong>John Doe</strong>, a passionate web developer with 
         <strong>5 years of experience</strong>.
@@ -62,21 +70,30 @@ const profiles = [
         <strong>solutions digitales performantes</strong>.
       </p>
     `,
-    experience_years: 5,
-    since: "2018",
-    rating: 4.5,
-    reviews_count: 100,
-    projects_completed: 50,
-    skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Python", "Django", "PostgreSQL"]
-  },
-  {
-    id: 2,
-    user_id: 2,
-    pseudo: "@marieL",
-    profile_picture: "/front-end/assets/pictures/anonyme.svg",
-    profession: "Graphiste",
-    job_title: "Designer Graphique & Illustratrice",
-    about: `
+		experience_years: 5,
+		since: '2018',
+		rating: 4.5,
+		reviews_count: 100,
+		projects_completed: 50,
+		skills: [
+			'HTML',
+			'CSS',
+			'JavaScript',
+			'React',
+			'Node.js',
+			'Python',
+			'Django',
+			'PostgreSQL'
+		]
+	},
+	{
+		id: 2,
+		user_id: 2,
+		pseudo: '@marieL',
+		profile_picture: '/front-end/assets/pictures/anonyme.svg',
+		profession: 'Graphiste',
+		job_title: 'Designer Graphique & Illustratrice',
+		about: `
       <p>
         Je suis <strong>Marie Laurent</strong>, graphiste passionnée avec 
         <strong>6 ans d'expérience</strong> en design print et digital.
@@ -94,21 +111,28 @@ const profiles = [
         Votre marque mérite un design <strong>qui vous ressemble vraiment</strong>.
       </p>
     `,
-    experience_years: 6,
-    since: "2019",
-    rating: 4.9,
-    reviews_count: 234,
-    projects_completed: 80,
-    skills: ["Photoshop", "Illustrator", "Figma", "InDesign", "Procreate", "After Effects"]
-  },
-  {
-    id: 3,
-    user_id: 3,
-    pseudo: "@pierreT",
-    profile_picture: "/front-end/assets/pictures/anonyme.svg",
-    profession: "Data Analyst",
-    job_title: "Data Analyst & Consultant BI",
-    about: `
+		experience_years: 6,
+		since: '2019',
+		rating: 4.9,
+		reviews_count: 234,
+		projects_completed: 80,
+		skills: [
+			'Photoshop',
+			'Illustrator',
+			'Figma',
+			'InDesign',
+			'Procreate',
+			'After Effects'
+		]
+	},
+	{
+		id: 3,
+		user_id: 3,
+		pseudo: '@pierreT',
+		profile_picture: '/front-end/assets/pictures/anonyme.svg',
+		profession: 'Data Analyst',
+		job_title: 'Data Analyst & Consultant BI',
+		about: `
       <p>
         Je suis <strong>Pierre Touré</strong>, data analyst avec 
         <strong>4 ans d'expérience</strong> en analyse de données.
@@ -126,21 +150,29 @@ const profiles = [
         La data n'a de valeur que si elle <strong>guide vos décisions</strong>.
       </p>
     `,
-    experience_years: 4,
-    since: "2020",
-    rating: 4.7,
-    reviews_count: 67,
-    projects_completed: 30,
-    skills: ["Python", "SQL", "Power BI", "Excel", "Tableau", "Pandas", "NumPy"]
-  },
-  {
-    id: 4,
-    user_id: 4,
-    pseudo: "@sophieB",
-    profile_picture: "/front-end/assets/pictures/profil1.jpg",
-    profession: "UX Designer",
-    job_title: "UX/UI Designer Freelance",
-    about: `
+		experience_years: 4,
+		since: '2020',
+		rating: 4.7,
+		reviews_count: 67,
+		projects_completed: 30,
+		skills: [
+			'Python',
+			'SQL',
+			'Power BI',
+			'Excel',
+			'Tableau',
+			'Pandas',
+			'NumPy'
+		]
+	},
+	{
+		id: 4,
+		user_id: 4,
+		pseudo: '@sophieB',
+		profile_picture: '/front-end/assets/pictures/profil1.jpg',
+		profession: 'UX Designer',
+		job_title: 'UX/UI Designer Freelance',
+		about: `
       <p>
         Je suis <strong>Sophie Bello</strong>, UX designer avec 
         <strong>3 ans d'expérience</strong> en design d'interfaces.
@@ -158,21 +190,21 @@ const profiles = [
         Un bon design est celui <strong>qu'on ne remarque pas</strong>.
       </p>
     `,
-    experience_years: 3,
-    since: "2020",
-    rating: 4.6,
-    reviews_count: 42,
-    projects_completed: 20,
-    skills: ["Figma", "Sketch", "InVision", "Adobe XD", "Miro", "Zeplin"]
-  },
-  {
-    id: 5,
-    user_id: 5,
-    pseudo: "@thomasR",
-    profile_picture: "/front-end/assets/pictures/anonyme.svg",
-    profession: "Rédacteur Web",
-    job_title: "Rédacteur Web SEO & Copywriter",
-    about: `
+		experience_years: 3,
+		since: '2020',
+		rating: 4.6,
+		reviews_count: 42,
+		projects_completed: 20,
+		skills: ['Figma', 'Sketch', 'InVision', 'Adobe XD', 'Miro', 'Zeplin']
+	},
+	{
+		id: 5,
+		user_id: 5,
+		pseudo: '@thomasR',
+		profile_picture: '/front-end/assets/pictures/anonyme.svg',
+		profession: 'Rédacteur Web',
+		job_title: 'Rédacteur Web SEO & Copywriter',
+		about: `
       <p>
         Je suis <strong>Thomas Romain</strong>, rédacteur web avec 
         <strong>3 ans d'expérience</strong> en création de contenu.
@@ -190,26 +222,49 @@ const profiles = [
         Les mots justes pour <strong>faire grandir votre business</strong>.
       </p>
     `,
-    experience_years: 3,
-    since: "2021",
-    rating: 4.8,
-    reviews_count: 156,
-    projects_completed: 500,
-    skills: ["SEO", "Copywriting", "WordPress", "Google Analytics", "Semrush"]
-  }
+		experience_years: 3,
+		since: '2021',
+		rating: 4.8,
+		reviews_count: 156,
+		projects_completed: 500,
+		skills: [
+			'SEO',
+			'Copywriting',
+			'WordPress',
+			'Google Analytics',
+			'Semrush'
+		]
+	}
 ];
 
-
-
-
 export function getMyProfil() {
-    return profile;
+	return profile;
 }
 
 export function getProfils() {
-    return profiles;
+	return profiles;
 }
 
 export function getProfil(id, profils_list) {
-  return profils_list.find(profil => profil.id = id);
+	return profils_list.find(profil => (profil.id = id));
+}
+
+export function setProfil(data) {
+
+	alert(`setting of ${data.email}`);
+	let profils = JSON.parse(localStorage.getItem('profils')) || "nul";
+
+	let id = profils.length;
+	alert(id);
+	data.id = id;
+
+	profils.push(data)
+
+	localStorage.setItem('profils', JSON.stringify(profils));
+	
+    const profil = JSON.parse(localStorage.getItem('profils'));
+	//alert(profil[profil.length - 1].email);
+
+	alert('end setting');
+	return true;
 }

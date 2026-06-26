@@ -1,30 +1,30 @@
 main {
-  width: 100%;
-  max-width: 1500px;
-  margin: var(--space-lg) auto;
-  gap: var(--space-lg);
+    width: 100%;
+    max-width: 1500px;
+    margin: var(--space-lg) auto;
+    gap: var(--space-lg);
 }
 
 section {
-  padding: var(--space-lg);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.2);
-  transition: var(--transition-slow);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-all-around) rgba(var(--gray-color), 0.2);
+    transition: var(--transition-slow);
 }
 
 section:hover {
-  box-shadow: var(--shadow-all-around) rgba(var(--first-color), 0.4);
-  transform: translateY(-2px);
+    box-shadow: var(--shadow-all-around) rgba(var(--first-color), 0.4);
+    transform: translateY(-2px);
 }
 
-section > h2 {
-  font-size: var(--text-lg);
-  font-weight: var(--fw-bold);
-  transition: var(--transition-slow);
+section>h2 {
+    font-size: var(--text-lg);
+    font-weight: var(--fw-bold);
+    transition: var(--transition-slow);
 }
 
-section:hover > h2 {
-  color: rgba(var(--first-color), 1);
+section:hover>h2 {
+    color: rgba(var(--first-color), 1);
 }
 
 /*///////////////////////////////////
@@ -32,152 +32,156 @@ section:hover > h2 {
 /////////////////////////////////*/
 
 #hero {
-  gap: var(--space-md);
+    gap: var(--space-md);
 }
 
 .profil-container {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  object-fit: containt;
-  max-width: 200px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    object-fit: containt;
+    max-width: 200px;
 }
 
 .profil-container img {
-  width: 100%;
-  height: 100%;
-  border-radius: var(--radius-oval);
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-oval);
 }
 
 .personnal-infos {
-  gap: var(--space-sm);
-  align-items: flex-start;
-  justify-content: center;
+    gap: var(--space-sm);
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .name {
-  line-height: 1;
-  font-size: var(--text-xl);
-  font-weight: var(--fw-semibold);
+    line-height: 1;
+    font-size: var(--text-xl);
+    font-weight: var(--fw-semibold);
 }
 
 .pseudo {
-  color: rgba(var(--gray-color), 1);
-  font-weight: var(--fw-medium);
+    color: rgba(var(--gray-color), 1);
+    font-weight: var(--fw-medium);
 }
 
 .email {
-  font-size: var(--text-md);
-  font-style: italic;
-  font-weight: var(--fw-medium);
+    font-size: var(--text-md);
+    font-style: italic;
+    font-weight: var(--fw-medium);
 }
 
 .rating-infos {
-  border-bottom: 1px solid rgba(var(--second-color), 0.5);
-  padding-bottom: var(--space-md);
-  gap: var(--space-md);
-  margin-bottom: var(--space-md);
+    border-bottom: 1px solid rgba(var(--second-color), 0.5);
+    padding-bottom: var(--space-md);
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
 }
 
 .professinal-infos {
-  gap: var(--space-sm);
-  font-weight: var(--fw-medium);
+    gap: var(--space-sm);
+    font-weight: var(--fw-medium);
 }
 
 .job-title,
 .experience,
 .since {
-  font-weight: var(--fw-medium);
+    font-weight: var(--fw-medium);
 }
 
 /*///////////////////////////////////
 //     style for about section    //
 /////////////////////////////////*/
 
-#about {
-}
+#about {}
 
 .about-content p {
-  padding: var(--space-xs);
-  line-height: 1.1;
+    padding: var(--space-xs);
+    line-height: 1.1;
 }
 
 .about-content ul {
-  margin: var(--space-sm) var(--space-md);
+    margin: var(--space-sm) var(--space-md);
 }
 
 .about-content li {
-  list-style: none;
-  list-style-position: inside;
-  font-weight: var(--fw-bold);
+    list-style: none;
+    list-style-position: inside;
+    font-weight: var(--fw-bold);
 }
 
 .about-content li::before {
-  content: "\2713";
-  color: rgba(var(--second-color), 1);
-  padding-right: var(--space-xs);
+    content: "\2713";
+    color: rgba(var(--second-color), 1);
+    padding-right: var(--space-xs);
 }
 
 .about-content strong {
-  font-weight: var(--fw-semibold);
-  color: rgba(var(--second-color), 1);
+    font-weight: var(--fw-semibold);
+    color: rgba(var(--second-color), 1);
 }
 
-/*skills*/
+/*----------------skills-------------*/
 #skills {
+min-width: 200px;
 }
 
 #my-skills {
-  margin: var(--space-sm) var(--space-md);
+    margin: var(--space-sm) var(--space-md);
 }
 
 #my-skills li {
-  list-style-position: inside;
-  font-weight: var(--fw-semibold);
+    list-style-position: inside;
+    font-weight: var(--fw-semibold);
 }
+
 /*///////////////////////////////////
 //    style for service section   // 
 /////////////////////////////////*/
 #services {
-  gap: var(--space-md);
-  width: 100%;
+    gap: var(--space-md);
+    width: 100%;
 }
 
 #my-services {
-  flex-wrap: nowrap;
-  align-items: stretch;
-  gap: var(--space-md);
-  overflow: auto;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 100%;
+    gap: var(--space-md);
+    overflow: auto;
 }
 
-#my-services > div {
-  min-width: 280px;
-  height: 100%;
+#my-services>div {
+    min-width: 280px;
+    height: 100%;
 }
 
 /*///////////////////////////////////
 //    style for review section    //
 /////////////////////////////////*/
-#reviews {
-}
+#reviews {}
 
 #my-reviews-container {
-  background: transparent;
-  max-height: 600px;
-  padding: var(--space-xs);
-  margin-top: var(--space-md);
-  gap: var(--space-md);
-  overflow-y: auto;
+    background: transparent;
+    max-height: 600px;
+    padding: var(--space-xs);
+    margin-top: var(--space-md);
+    gap: var(--space-md);
+    overflow-y: auto;
 }
 
 /*porfolio section */
 
 #portfolio {
+    display: flex;
+    flex-direction: column;
 }
 
 #my-portfolios-container {
-  gap: var(--space-md);
-  border: 1px solid;
-  flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-md);
+    flex-wrap: nowrap;
+    height: 100%;
 }
-

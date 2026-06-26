@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <title>GeoAI Cam | Version Stable</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: radial-gradient(circle at 20% 30%, #0a0f1c, #03060b);
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, 'Inter', sans-serif;
+            padding: 1rem;
+            color: #eef2ff;
+        }
+
+        .app-container {
+            max-width: 540px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .glass-card {
+            background: rgba(12, 20, 30, 0.75);
+            backdrop-filter: blur(16px);
+            border-radius: 2rem;
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1e4a8a, #0f2e55);
+            border: none;
+            border-radius: 3rem;
+            padding: 1rem 1.2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+            touch-action: manipulation;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            border-radius: 3rem;
+            padding: 0.8rem 1rem;
+            font-weight: 500;
+            color: #cbd5ff;
+            cursor: pointer;
+        }
+
+        .video-box {
+            background: #000;
+            border-radius: 1.8rem;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .spinner {
+            width: 52px;
+            height: 52px;
+            border: 3px solid rgba(59, 130, 246, 0.2);
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            background: #ef4444e6;
+            backdrop-filter: blur(12px);
+            color: white;
+            padding: 0.9rem;
+            border-radius: 60px;
+            text-align: center;
+            z-index: 1000;
+            font-size: 0.85rem;
+        }
+
+        .result-tag {
+            background: rgba(59, 130, 246, 0.3);
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            display: inline-block;
+        }
+
+        .api-selector {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .api-option {
+            flex: 1;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            border-radius: 2rem;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.7rem;
+            cursor: pointer;
+        }
+
+        .api-option.active {
+            background: #3b82f6;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <div class="glass-card" style="padding: 0.8rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3b82f6">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+            </svg>
+            <span style="font-weight: 700; font-size: 1.3rem;">GeoAI<span style="color:#3b82f6">Cam</span></span>
+        </div>
+        <div style="background: #1e2a3e80; padding: 0.2rem 1rem; border-radius: 50px; font-size: 0.65rem;">SANS CORS</div>
+    </div>
+
+    <div class="glass-card" style="padding: 1rem 1.2rem;">
+        <div class="api-selector">
+            <div id="optionMock" class="api-option active">📱 Mode Démo (100% local)</div>
+            <div id="OptionClarifai" class="api-option">🔑 Clarifai (gratuit)</div>
+        </div>
+        <div id="apiKeySection" style="display: none;">
+            <label style="font-size: 0.75rem; margin-bottom: 6px; display: block;">🔑 Clé API Clarifai</label>
+            <input type="password" id="apiKey" class="input-api" style="width:100%; background:rgba(0,0,0,0.5); border:1px solid #2c4d7a; border-radius:2rem; padding:0.9rem 1.2rem; color:white;" placeholder="Votre clé Clarifai">
+            <div style="font-size: 0.6rem; color: #94a3b8; margin-top: 5px;">Obtenir : clarifai.com → Sign up → API Keys</div>
+        </div>
+        <div id="demoInfo" style="font-size: 0.7rem; text-align: center; margin-top: 0.5rem; color: #60a5fa;">
+            🎯 Mode démo actif : simulation IA (sans API)
+        </div>
+    </div>
+
+    <div id="homeScreen" class="glass-card" style="padding: 2rem 1.5rem; text-align: center; display: flex; flex-direction: column; gap: 1.5rem;">
+        <div style="background: #0f2e5540; width: 80px; height: 80px; border-radius: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#3b82f6">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+            </svg>
+        </div>
+        <h2 style="font-size: 1.5rem; font-weight: 700;">Capture intelligente</h2>
+        <p style="color: #b9d0ff;">Géolocalisation + Analyse IA</p>
+        <button id="activateCam" class="btn-primary">📷 Activer la caméra</button>
+    </div>
+
+    <div id="cameraScreen" class="glass-card" style="padding: 1.2rem; display: none; flex-direction: column; gap: 1rem;">
+        <div class="video-box">
+            <video id="video" autoplay playsinline muted></video>
+        </div>
+        <button id="captureBtn" class="btn-primary">🔘 ANALYSER & LOCALISER</button>
+        <button id="backHome" class="btn-secondary">Retour</button>
+    </div>
+
+    <div id="loadingScreen" class="glass-card" style="padding: 2.5rem; display: none; flex-direction: column; align-items: center; gap: 1rem;">
+        <div class="spinner"></div>
+        <p style="font-weight: 600;">Analyse en cours...</p>
+        <p style="font-size: 0.75rem;">Géolocalisation + Vision IA</p>
+    </div>
+
+    <div id="resultScreen" class="glass-card" style="padding: 1.4rem; display: none; flex-direction: column; gap: 1rem;">
+        <div style="display: flex; justify-content: space-between;">
+            <span style="font-weight: 700;">📋 Résultats</span>
+            <button id="newPhoto" class="btn-secondary" style="padding: 0.4rem 1rem;">Nouvelle</button>
+        </div>
+        
+        <div style="border-left: 3px solid #3b82f6; padding-left: 0.8rem;">
+            <div style="display: flex; gap: 6px; margin-bottom: 4px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3b82f6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span style="font-size: 0.8rem; font-weight: 600;">Localisation</span>
+            </div>
+            <p id="addressText" style="font-size: 0.8rem;">—</p>
+            <a id="osmLink" href="#" target="_blank" style="font-size: 0.7rem; color: #60a5fa;">Voir sur OpenStreetMap →</a>
+        </div>
+
+        <div style="border-left: 3px solid #a855f7; padding-left: 0.8rem;">
+            <div style="display: flex; gap: 6px; margin-bottom: 4px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c084fc"><path d="M12 2a10 10 0 1 0 10 10 10 10 0 0 0-10-10z"/><path d="M12 6v4M12 16h.01"/></svg>
+                <span style="font-size: 0.8rem; font-weight: 600;">Analyse IA</span>
+            </div>
+            <p id="aiText" style="font-size: 0.85rem; font-weight: 500;">—</p>
+            <div id="tags" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px;"></div>
+        </div>
+
+        <img id="thumbnail" style="width: 60px; height: 60px; border-radius: 1rem; object-fit: cover; margin-top: 0.5rem;">
+    </div>
+</div>
+
+<script>
+    (function() {
+        // DOM elements
+        const homeDiv = document.getElementById('homeScreen');
+        const cameraDiv = document.getElementById('cameraScreen');
+        const loadingDiv = document.getElementById('loadingScreen');
+        const resultDiv = document.getElementById('resultScreen');
+        const activateBtn = document.getElementById('activateCam');
+        const captureAnalyzeBtn = document.getElementById('captureBtn');
+        const backHomeBtn = document.getElementById('backHome');
+        const newPhotoBtn = document.getElementById('newPhoto');
+        const apiKeyInput = document.getElementById('apiKey');
+        const optionMock = document.getElementById('optionMock');
+        const optionClarifai = document.getElementById('OptionClarifai');
+        const apiKeySection = document.getElementById('apiKeySection');
+        const demoInfo = document.getElementById('demoInfo');
+        
+        const videoEl = document.getElementById('video');
+        const addressSpan = document.getElementById('addressText');
+        const osmLink = document.getElementById('osmLink');
+        const aiTextSpan = document.getElementById('aiText');
+        const tagsDiv = document.getElementById('tags');
+        const thumbImg = document.getElementById('thumbnail');
+        
+        let mediaStream = null;
+        let useMockMode = true;
+        
+        function showToast(msg) {
+            const existing = document.querySelector('.toast');
+            if(existing) existing.remove();
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = msg;
+            document.body.appendChild(toast);
+            setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 400); }, 4500);
+        }
+        
+        // Sélecteur d'API
+        optionMock.addEventListener('click', () => {
+            useMockMode = true;
+            optionMock.classList.add('active');
+            optionClarifai.classList.remove('active');
+            apiKeySection.style.display = 'none';
+            demoInfo.style.display = 'block';
+            demoInfo.textContent = '🎯 Mode démo actif : IA simulée (100% locale, sans API externe)';
+        });
+        
+        optionClarifai.addEventListener('click', () => {
+            useMockMode = false;
+            optionClarifai.classList.add('active');
+            optionMock.classList.remove('active');
+            apiKeySection.style.display = 'block';
+            demoInfo.style.display = 'block';
+            demoInfo.textContent = '🔑 Mode API réel : entrez votre clé Clarifai ci-dessus';
+            demoInfo.style.color = '#c084fc';
+        });
+        
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: { exact: "environment" }, width: { ideal: 1280 }, height: { ideal: 720 } }
+                });
+                if(mediaStream) stopCamera();
+                videoEl.srcObject = stream;
+                mediaStream = stream;
+                return true;
+            } catch(err) {
+                if(err.name === 'NotAllowedError') showToast("Permission caméra refusée");
+                else if(err.name === 'NotFoundError') showToast("Aucune caméra arrière trouvée");
+                else showToast(`Erreur: ${err.message}`);
+                return false;
+            }
+        }
+        
+        function stopCamera() {
+            if(mediaStream) {
+                mediaStream.getTracks().forEach(t => t.stop());
+                mediaStream = null;
+            }
+            if(videoEl.srcObject) videoEl.srcObject = null;
+        }
+        
+        async function getLocation() {
+            return new Promise((resolve, reject) => {
+                if(!navigator.geolocation) reject(new Error("Géo non supportée"));
+                navigator.geolocation.getCurrentPosition(async (pos) => {
+                    const { latitude, longitude } = pos.coords;
+                    try {
+                        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1&accept-language=fr`, {
+                            headers: { 'User-Agent': 'GeoAICam/5.0' }
+                        });
+                        if(!res.ok) throw new Error();
+                        const data = await res.json();
+                        resolve({ lat: latitude, lng: longitude, address: data.display_name || `${latitude}, ${longitude}` });
+                    } catch {
+                        resolve({ lat: latitude, lng: longitude, address: `${latitude.toFixed(5)}, ${longitude.toFixed(5)}` });
+                    }
+                }, (err) => {
+                    let msg = "Erreur GPS";
+                    if(err.code === 1) msg = "Permission GPS refusée";
+                    reject(new Error(msg));
+                }, { enableHighAccuracy: true, timeout: 12000 });
+            });
+        }
+        
+        function capturePhoto() {
+            if(!videoEl.videoWidth) throw new Error("Vidéo inactive");
+            const canvas = document.createElement('canvas');
+            canvas.width = videoEl.videoWidth;
+            canvas.height = videoEl.videoHeight;
+            canvas.getContext('2d').drawImage(videoEl, 0, 0);
+            return new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', 0.85));
+        }
+        
+        // Mode démo : analyse locale simulée
+        async function mockAnalyze(blob) {
+            return new Promise((resolve) => {
+                // Simuler une analyse réaliste
+                const descriptions = [
+                    "Une scène extérieure avec une belle luminosité naturelle",
+                    "Photo prise en environnement urbain, détails nets",
+                    "Image contrastée, probablement en extérieur",
+                    "Cadrage dynamique, bon équilibre des couleurs",
+                    "Photo bien exposée, composition intéressante"
+                ];
+                const randomDesc = descriptions[Math.floor(Math.random() * descriptions.length)];
+                setTimeout(() => resolve(randomDesc), 1500);
+            });
+        }
+        
+        // Clarifai API (accepte CORS)
+        async function analyzeWithClarifai(blob, token) {
+            if(!token || token.length < 10) throw new Error("Clé API invalide");
+            
+            const base64 = await new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onloadend = () => resolve(reader.result.split(',')[1]);
+                reader.readAsDataURL(blob);
+            });
+            
+            const response = await fetch('https://api.clarifai.com/v2/models/general-image-recognition/outputs', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Key ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    inputs: [{ data: { image: { base64: base64 } } }]
+                })
+            });
+            
+            if(response.status === 401) throw new Error("Clé API Clarifai incorrecte");
+            if(!response.ok) throw new Error(`Erreur API ${response.status}`);
+            
+            const data = await response.json();
+            const concepts = data.outputs[0].data.concepts.slice(0, 5);
+            const description = concepts.map(c => c.name).join(', ');
+            return `Je vois : ${description}`;
+        }
+        
+        async function runFullAnalysis() {
+            if(!mediaStream) {
+                showToast("📷 Caméra non active");
+                return;
+            }
+            
+            let apiToken = null;
+            if(!useMockMode) {
+                apiToken = apiKeyInput.value.trim();
+                if(!apiToken) {
+                    showToast("🔑 Entrez votre clé API Clarifai");
+                    return;
+                }
+            }
+            
+            homeDiv.style.display = "none";
+            cameraDiv.style.display = "none";
+            loadingDiv.style.display = "flex";
+            resultDiv.style.display = "none";
+            
+            try {
+                const imageBlob = await capturePhoto();
+                const thumbUrl = URL.createObjectURL(imageBlob);
+                thumbImg.src = thumbUrl;
+                thumbImg.onload = () => URL.revokeObjectURL(thumbUrl);
+                
+                let location = null;
+                try {
+                    location = await getLocation();
+                    addressSpan.innerText = location.address;
+                    osmLink.href = `https://www.openstreetmap.org/?mlat=${location.lat}&mlon=${location.lng}#map=17/${location.lat}/${location.lng}`;
+                } catch(geoErr) {
+                    addressSpan.innerText = `⚠️ ${geoErr.message}`;
+                    osmLink.href = "#";
+                }
+                
+                let aiResult = "";
+                if(useMockMode) {
+                    aiResult = await mockAnalyze(imageBlob);
+                } else {
+                    aiResult = await analyzeWithClarifai(imageBlob, apiToken);
+                }
+                
+                aiTextSpan.innerText = aiResult;
+                const mots = aiResult.split(/\s+/).filter(m => m.length > 2).slice(0, 5);
+                const uniques = [...new Set(mots.map(m => m.replace(/[.,!?]/g, '').toLowerCase()))];
+                tagsDiv.innerHTML = uniques.map(t => `<span class="result-tag">#${t}</span>`).join('');
+                if(uniques.length === 0) tagsDiv.innerHTML = '<span class="result-tag">#image</span>';
+                
+                loadingDiv.style.display = "none";
+                resultDiv.style.display = "flex";
+                
+            } catch(err) {
+                loadingDiv.style.display = "none";
+                showToast(`Erreur: ${err.message}`);
+                homeDiv.style.display = "flex";
+                cameraDiv.style.display = "none";
+            }
+        }
+        
+        activateBtn.addEventListener('click', async () => {
+            const ok = await startCamera();
+            if(ok) {
+                homeDiv.style.display = "none";
+                cameraDiv.style.display = "flex";
+            }
+        });
+        
+        captureAnalyzeBtn.addEventListener('click', () => {
+            if(!mediaStream) { showToast("Caméra inactive"); return; }
+            runFullAnalysis();
+        });
+        
+        backHomeBtn.addEventListener('click', () => {
+            stopCamera();
+            homeDiv.style.display = "flex";
+            cameraDiv.style.display = "none";
+        });
+        
+        newPhotoBtn.addEventListener('click', () => {
+            resultDiv.style.display = "none";
+            stopCamera();
+            homeDiv.style.display = "flex";
+            cameraDiv.style.display = "none";
+        });
+        
+        window.addEventListener('beforeunload', () => stopCamera());
+    })();
+</script>
+</body>
+</html>

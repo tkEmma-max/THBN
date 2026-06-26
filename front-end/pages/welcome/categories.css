@@ -1,22 +1,21 @@
 /* here it's the code for the style of the categories section in the welcome page */
 .categories {
     border-top: 2px solid rgba(var(--second-color), 0.5);
-    padding: var(--space-md) 0 0;
-    background: white;
+    padding: var(--space-sm);
     justify-content: space-between;
     gap: var(--space-lg);
-    margin: var(--space-2xl) var(--space-lg);
+    margin: var(--space-2xl) var(--space-md);
     transition: all var(--transition-slow);
 }
 
 .categories:hover {
-    padding: var(--space-md);
     border-radius: var(--radius-lg);
     background: rgba(var(--second-color), 0.05);
     box-shadow: var(--shadow-all-around) rgba(var(--second-color), 0.3);
 }
 
-.categories > p {
+.categories>p {
+    text-align: center;
     font-weight: var(--fw-semibold);
     font-size: var(--text-xl);
     color: rgba(var(--second-color), 1);
@@ -26,7 +25,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: var(--space-lg);
-    padding: var(--space-lg);
+    padding: var(--space-lg) var(--space-xs);
     flex-wrap: nowrap;
     overflow: auto;
 }
@@ -58,11 +57,11 @@
     gap: var(--space-sm);
 }
 
-.category h3 span{
+.category h3 span {
     font-weight: inherit;
 }
 
-.category:hover h3{
+.category:hover h3 {
     color: rgba(var(--second-color), 1);
 }
 
@@ -72,12 +71,13 @@
 }
 
 .categories:hover p {
-   font-weight: var(--fw-semibold);
+    font-weight: var(--fw-semibold);
 }
 
 @media screen and (min-width: 600px) {
     .categories {
         padding: var(--space-lg) 0 0;
+        margin: var(--space-2xl) var(--space-lg);
     }
 
     .categories-container {

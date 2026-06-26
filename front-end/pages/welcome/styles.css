@@ -1,7 +1,16 @@
 /*---------- hero -------------*/
 
 .hero {
-    margin: var(--space-2xl) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: var(--space-2xl) var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-xl);
+    background: ;
+    background: linear-gradient(135deg, rgba(var(--first-color), 0.1), rgba(var(--second-color), 0.1));
 }
 
 .hero p {
@@ -16,9 +25,9 @@
 
 /*---------- CTA ----------------*/
 .CTA {
-    margin: var(--space-2xl) var(--space-lg);
+    margin: var(--space-2xl) 0;
     justify-content: space-between;
-    max-width: 500px;
+    width: 100%;
 }
 
 .CTA button a {
@@ -30,11 +39,12 @@
 /*----------why shouse us ------*/
 .why-shoose-us {
     border-top: 2px solid rgba(var(--first-color), 0.5);
-    margin: var(--space-2xl) var(--space-lg) var(--space-lg);
+    margin: var(--space-2xl) var(--space-md) var(--space-lg);
     transition: var(--transition-slow);
+    padding-bottom: var(--space-md);
 }
 
-.why-shoose-us:hover{
+.why-shoose-us:hover {
     border-radius: 20px;
     background: rgba(var(--first-color), 0.05);
     box-shadow: var(--shadow-all-around) rgba(var(--first-color), 0.3);
@@ -48,7 +58,7 @@
     padding: 0 var(--space-md);
 }
 
-.why-shoose-us > p {
+.why-shoose-us>p {
     font-weight: var(--fw-semibold);
     text-align: center;
     font-size: var(--text-xl);
@@ -82,17 +92,37 @@
     gap: var(--space-sm);
 }
 
-.why-shoose-item:hover h3{
+.why-shoose-item:hover h3 {
     color: rgba(var(--first-color), 1);
 }
 
 @media screen and (min-width: 600px) {
-    .why-shoose-us{
+    .why-shoose-us {
         padding: var(--space-lg);
+        margin: var(--space-2xl) var(--space-lg) var(--space-lg);
     }
+
     .why-shoose-all {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: var(--space-lg);
+    }
+
+    .hero {
+        align-items: flex-start;
+        margin: var(--space-2xl) var(--space-lg);
+        padding: var(--space-lg) var(--space-2xl);
+    }
+
+    .hero p {
+        width: 100%;
+        max-width: 500px;
+        text-align: left;
+    }
+
+    .CTA {
+        gap: var(--space-2xl);
+        width: 100%;
+        justify-content: flex-start;
     }
 }

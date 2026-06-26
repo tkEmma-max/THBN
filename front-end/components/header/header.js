@@ -4,29 +4,35 @@
 */
 
 export class Header {
-	constructor(user = null, profil = null) {
+	constructor(user = null, profil = null, place = 'head') {
 		this.user = user;
 		this.profil = profil;
+		this.place =
+			document.getElementById(place) ||
+			document.querySelector('header') ||
+			null;
 	}
 
 	//positionnement du header
 	renderHeader(selector) {
-		const place = document.getElementById(selector);
-
-		if (!place) return;
-		place.className = 'header-container flex-row';
-		this.buildHeader(place);
+		if (!this.place) return;
+		this.place.className = 'header-container flex-row';
+		this.buildHeader(this.place);
 	}
 
 	//construction du header
 	buildHeader(place) {
 		place.appendChild(this.fillInfoApp());
 
+		let nav_bar = document.createElement('nav');
+
 		if (!this.user) {
-			//place.appendChild(this.fillNavNoConnected());
+			nav_bar.appendChild(this.fillNavNoConnected());
 		} else {
-			place.appendChild(this.fillNavConnected);
+			nav_bar.appendChild(this.fillNavConnected());
 		}
+
+		place.appendChild(nav_bar);
 
 		return;
 	}
@@ -45,19 +51,112 @@ export class Header {
 	}
 
 	fillNavConnected() {
-		const nav_div = document.createElement('nav');
+		const nav_div = document.createElement('div');
 		return nav_div;
 	}
+
 	fillNavNoConnected() {
-		const nav_div = document.createElement('nav');
-		nav_div.className = 'hd-nav flex-row';
+		const nav_div = document.createElement('ul');
+		nav_div.className = 'hd-nav-noConnected flex-row';
 		nav_div.innerHTML = `
-            <ul class="register-action flex-row">
-                <li><a>acceuil</a></li>
-                <li><a>connexion</a></li>
-                <li><a>creer un compte</a></li>
-            </ul>
+            <li class="nav-element"><a href="../home/index.html">acceuil</a></li>
+            <li class="nav-element"><a>connexion</a></li>
+            <li class="nav-element"><a>creer un compte</a></li>
+            <span class="underliner"></span>
         `;
 		return nav_div;
 	}
+
+	addMenuMobile() {
+		let menu = document.createElement('span');
+		menu.className = 'menu-mobile';
+		menu.innerHTML = `
+                    <svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+                        class = "svg-menu-mobile"
+					>
+						<path d="M4 5h16" />
+						<path d="M4 12h16" />
+						<path d="M4 19h16" />
+					</svg>
+    `;
+
+		this.place.appendChild(menu);
+	}
 }
+
+function underline(underliner, element) {
+	if (!element || !underliner) return;
+	underliner.style.width = element.offsetWidth + 'px';
+
+	let mobileWidth = window.innerWidth;
+
+	if (mobileWidth < 650) {
+		underliner.style.top = element.offsetTop + 'px';
+		underliner.style.height =  element.offsetHeight + 'px';
+		underliner.style.width =  '4px';
+		underliner.style.left = "-5px";
+
+	} else {
+		underliner.style.left = element.offsetLeft + 'px';
+	}
+}
+
+
+function responsive(e, header) {
+	if (e.matches) {
+		header.addMenuMobile();
+		document.querySelector('nav').style.display = 'none';
+	}
+}
+
+function toggle(menu, element) {
+	let showed = false;
+
+	menu.addEventListener('click', function () {
+		element.style.display = showed ? 'none' : 'flex';
+		showed = !showed;
+	});
+
+	document.addEventListener('click', e => {
+		if (!e.target.closest('.menu-mobile') && !e.target.closest('nav')) {
+			element.style.display = 'none';
+		}
+	});
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+	const header = new Header();
+	header.renderHeader('head');
+
+	let mobileWidth = window.matchMedia('(max-width:620px)');
+
+	let underliner = document.querySelector('.underliner');
+	const boutton_nav = document.querySelectorAll('.nav-element');
+
+	if (boutton_nav) {
+		boutton_nav.forEach(nav => {
+			nav.addEventListener('click', function () {
+				underline(underliner, nav);
+			});
+		});
+	}
+
+	responsive(mobileWidth, header);
+	mobileWidth.addEventListener('change', function () {});
+
+	let menu_mobile = document.querySelector('.menu-mobile');
+	let nav_barre = document.querySelector('nav');
+
+	if (nav_barre && menu_mobile) {
+		toggle(menu_mobile, nav_barre);
+	}
+});
