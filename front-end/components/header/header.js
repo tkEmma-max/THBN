@@ -60,8 +60,8 @@ export class Header {
 		nav_div.className = 'hd-nav-noConnected flex-row';
 		nav_div.innerHTML = `
             <li class="nav-element"><a href="../home/index.html">acceuil</a></li>
-            <li class="nav-element"><a>connexion</a></li>
-            <li class="nav-element"><a>creer un compte</a></li>
+            <li class="nav-element"><a href="../login/index.html">connexion</a></li>
+            <li class="nav-element"><a href="../register/index.html">creer un compte</a></li>
             <span class="underliner"></span>
         `;
 		return nav_div;
@@ -93,6 +93,7 @@ export class Header {
 	}
 }
 
+//recuperation de la largeur de lecran
 function underline(underliner, element) {
 	if (!element || !underliner) return;
 	underliner.style.width = element.offsetWidth + 'px';
@@ -107,30 +108,48 @@ function underline(underliner, element) {
 
 	} else {
 		underliner.style.left = element.offsetLeft + 'px';
+		underliner.style.height = '4px';
+		underliner.style.top = element.offsetTop + element.offsetHeight + "px";
 	}
 }
 
 
 function responsive(e, header) {
+	const menu = document.querySelector('.menu-mobile');
 	if (e.matches) {
-		header.addMenuMobile();
+		if (menu){
+			menu.style.display = "block";
+		}else{
+			header.addMenuMobile();
+		}
 		document.querySelector('nav').style.display = 'none';
+	}else{
+		if (menu){
+			menu.style.display = "none";
+		}
+		document.querySelector('nav').style.display = 'block';
 	}
 }
 
 function toggle(menu, element) {
 	let showed = false;
+	let windowsWidth = window.innerWidth;
 
 	menu.addEventListener('click', function () {
 		element.style.display = showed ? 'none' : 'flex';
 		showed = !showed;
 	});
 
-	document.addEventListener('click', e => {
-		if (!e.target.closest('.menu-mobile') && !e.target.closest('nav')) {
-			element.style.display = 'none';
-		}
-	});
+	if (windowsWidth < 650){
+		document.addEventListener('click', unshow = (e) => {
+			if (!e.target.closest('.menu-mobile') && !e.target.closest('nav') ) {
+				element.style.display = 'none';
+			}
+		});
+	}else{
+		document.removeEventListener('click', unshow);
+	}
+	
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -144,14 +163,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (boutton_nav) {
 		boutton_nav.forEach(nav => {
-			nav.addEventListener('click', function () {
+			nav.addEventListener('mouseenter', function () {
 				underline(underliner, nav);
 			});
 		});
 	}
 
 	responsive(mobileWidth, header);
-	mobileWidth.addEventListener('change', function () {});
+	mobileWidth.addEventListener('change', function () {
+		responsive(mobileWidth, header)
+	});
 
 	let menu_mobile = document.querySelector('.menu-mobile');
 	let nav_barre = document.querySelector('nav');
